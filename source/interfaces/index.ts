@@ -1,3 +1,4 @@
+export * from "./global.attributes";
 export * from "./base.tag";
 export * from "./link.tag";
 export * from "./meta.tag";
