@@ -1,13 +1,15 @@
 
+import { GlobalAttributes } from "./global.attributes";
+
 /**
-    * Represents a title tag element.
+    * Represents properties commonly used for HTML title tags.
 */
 
-export interface TitleTag {
+export interface TitleTag extends GlobalAttributes {
 
     /**
-        * The title that is shown in a browser's title bar or a page's tab.
+        * The text content of the title element.
     */
    
-    title: string;
+    textContent: string;
 }
