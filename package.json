@@ -6,7 +6,7 @@
     "type": "git",
     "url": "git+https://github.com/cozyrl/headereact.git"
   },
-  "description": "",
+  "description": "An npm package that provides a handy utility for manipulating the document's head section in React applications. It includes methods for adding, deleting and creating various HTML elements in the header section.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "files": [
