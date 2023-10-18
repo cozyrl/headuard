@@ -1,9 +1,11 @@
 
+import { GlobalAttributes } from "./global.attributes";
+
 /**
     * Represents properties commonly used for HTML link tags.
 */
 
-export interface LinkTag {
+export interface LinkTag extends GlobalAttributes {
 
     /**
         * The URL of the linked resource.
