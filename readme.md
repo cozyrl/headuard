@@ -1,8 +1,8 @@
 <p align="center">
-    <img alt="Cozyrl Logo" height="auto" width="100px" src="./assets/images/logo.cozyrl.png"/>
+    <img alt="Cozyrl Logo" height="auto" width="80px" src="./assets/images/headereact.logo.png"/>
 </p>
 
-<h1 align="center">@cozyrl/headereact</h1>
+<h1 align="center">HeadeReact</h1>
 
 <p align="center">
 ...
