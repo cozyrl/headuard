@@ -11,7 +11,7 @@ export interface ScriptTag extends GlobalAttributes {
         * The URL of the external script file.
     */
 
-    src: string;
+    src?: string;
 
     /**
         * MIME type for the associated scripting engine.
