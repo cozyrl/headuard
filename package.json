@@ -15,7 +15,7 @@
   "scripts": {
     "build": "tsc",
     "test": "jest --passWithNoTests",
-    "test:watch": "jest --watchAll --verbose"
+    "test:watch": "jest --watchAll --verbose --detectOpenHandles"
   },
   "author": "Salem Djekoun",
   "license": "MIT",
