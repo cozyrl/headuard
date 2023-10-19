@@ -8,25 +8,66 @@ import { GlobalAttributes } from "./global.attributes";
 export interface LinkTag extends GlobalAttributes {
 
     /**
-        * The URL of the linked resource.
-    */
-
-    href: string;
-
-    /**
-        * The MIME type of the linked resource.
-    */
-
-    type?: string;
-
-    /**
         * Specifies the relationship between the current document and the linked resource.
     */
 
-    rel: string;
+    rel?: "alternate" 
+    | "author"
+    | "canonical"
+    | "dns-prefetch"
+    | "help"
+    | "icon"
+    | "manifest"
+    | "modulepreload"
+    | "next"
+    | "preconnect"
+    | "prefetch"
+    | "preload"
+    | "prerender"
+    | "prev"
+    | "search"
+    | "stylesheet"
+    | "tag";
 
     /**
-        * The type of the linked resource, such as "audio", "document", "embed", etc.
+        * Specifies the destination of the linked resource.
+    */
+
+    href?: string;
+
+    /**
+        * Provides advisory information about the linked resource's content.
+    */
+
+    title?: string;
+
+    /**
+        * Specifies the media types for which the linked resource is designed.
+    */
+
+    media?: "all"
+    | "print"
+    | "screen"
+    | "speech";
+
+    /**
+        * Specifies the MIME type of the linked resource.
+    */
+
+    type?: "text/css"
+    | "text/sass"
+    | "text/scss"
+    | "text/javascript"
+    | "image/png"
+    | "image/jpeg"
+    | "image/gif"
+    | "font/woff"
+    | "font/woff2"
+    | "application/json"
+    | "application/xml"; 
+
+    /**
+        * Specifies the intended behavior for the linked resource.
     */
 
     as?: "audio" 
@@ -42,30 +83,26 @@ export interface LinkTag extends GlobalAttributes {
     | "worker";
 
     /**
-        * How the element handles crossorigin requests.
+        * Specifies the crossorigin attribute for the linked resource.
     */
 
     crossOrigin?: "anonymous" | "use-credentials";
 
     /**
-        * The language of the linked resource.
+        * Indicates if the linked resource is disabled.
+    */
+
+    disabled?: boolean;
+
+    /**
+        * Specifies the language of the linked resource.
     */
 
     hreflang?: string;
 
     /**
-        * Specifies the referrer policy for the linked resource.
+        * Specifies the sizes for icons or other visual media.
     */
 
-    referrerPolicy?: "no-referrer" 
-    | "no-referrer-when-downgrade" 
-    | "origin" 
-    | "origin-when-cross-origin" 
-    | "unsafe-url";
-
-    /**
-        * The cryptographic hash value of the linked resource.
-    */
-
-    integrity?: string;
+    sizes?: "any" | `${number}x${number}` | `${number}X${number}`;
 }
