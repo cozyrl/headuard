@@ -1,7 +1,7 @@
 import { DocumentHead } from "../document.head";
 import { randomUUID } from "crypto";
 
-describe("** Script tag (specs) **", () => {
+describe("** Meta tag (specs) **", () => {
 
     var mounted: HTMLMetaElement;
 
