@@ -1,7 +1,7 @@
 
 import { DocumentHead } from "../document.head";
 import { randomUUID } from "crypto";
-import { w001, w002 } from "../warnings";
+import { w001, w002 } from "../utilities";
 
 describe("** Script tag (specs) **", () => {
 
