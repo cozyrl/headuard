@@ -1,12 +1,12 @@
 {
-  "name": "@cozyrl/headereact",
-  "version": "1.0.0",
-  "homepage": "https://github.com/cozyrl/headereact",
+  "name": "@cozyrl/headuard",
+  "version": "0.8.0",
+  "homepage": "https://github.com/cozyrl/headuard",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/cozyrl/headereact.git"
+    "url": "git+https://github.com/cozyrl/headuard.git"
   },
-  "description": "An npm package that provides a handy utility for manipulating the document's head section in React applications. It includes methods for adding, deleting and creating various HTML elements in the header section.",
+  "description": "Headuard is an npm package that provides a utility class for creating and managing head elements in the DOM. It simplifies the process of dynamically adding essential head elements to your web page, such as title, base, meta, script, and link.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "files": [
