@@ -1,26 +1,24 @@
 
 import { GlobalAttributes } from "../interfaces";
-import { randomUUID } from "crypto";
-
 
 /**
     * Global attributes and event handlers for testing purposes.
 */
 
 export const globalAttributes: GlobalAttributes = {
-    accessKey: randomUUID(),
+    accessKey: "",
     autoCapitalize: "sentences",
-    className: randomUUID(),
+    className: "",
     contentEditable: "inherit",
     dir: "rtl",
     draggable: Math.random() < 0.5,
     hidden: Math.random() < 0.5,
-    id: randomUUID(),
-    lang: randomUUID(),
-    slot: randomUUID(),
+    id: "",
+    lang: "",
+    slot: "",
     spellCheck: true,
     tabIndex: 1,
-    title: randomUUID(),
+    title: "",
     translate: Math.random() < 0.5,
     onabort: null,
     onauxclick: null,
