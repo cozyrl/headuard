@@ -45,10 +45,44 @@ export interface LinkTag extends GlobalAttributes {
         * Specifies the media types for which the linked resource is designed.
     */
 
-    media?: "all"
-    | "print"
-    | "screen"
-    | "speech";
+    imageSizes?: "auto"
+    | `${number}px`
+    | `${number}em`
+    | `${number}%`
+    | `${number}vw`
+    | `${number}vh`
+    | `${number}vmin`
+    | `${number}vmax`
+    | `calc(${string})`;
+
+    /**
+        * Specifies a list of image candidates and their respective display densities.
+        * Used in conjunction with `rel="preload"` and `as="image"`.
+    */
+
+    imageSrcset?: string;
+
+    /**
+        * Specifies the integrity hash for the linked resource.
+    */
+
+    integrity?: string;
+
+    /**
+        * Specifies the media types for which the linked resource is designed.
+    */
+
+    media?: string;
+
+    /**
+         * Specifies the referrer policy for the linked resource.
+     */
+
+    referrerPolicy?: "no-referrer" 
+    | "no-referrer-when-downgrade" 
+    | "origin" 
+    | "origin-when-cross-origin" 
+    | "unsafe-url";
 
     /**
         * Specifies the MIME type of the linked resource.
@@ -89,20 +123,8 @@ export interface LinkTag extends GlobalAttributes {
     crossOrigin?: "anonymous" | "use-credentials";
 
     /**
-        * Indicates if the linked resource is disabled.
-    */
-
-    disabled?: boolean;
-
-    /**
         * Specifies the language of the linked resource.
     */
 
     hreflang?: string;
-
-    /**
-        * Specifies the sizes for icons or other visual media.
-    */
-
-    sizes?: "any" | `${number}x${number}` | `${number}X${number}`;
 }
