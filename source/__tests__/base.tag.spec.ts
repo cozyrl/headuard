@@ -22,7 +22,6 @@ describe("** Base tag (specs) **", () => {
     it("should be able to mount a base element whose target is set to _self", () => {
         const target = "_self";
         mounted = Headuard.createBase({ target });
-        
 
         expect(mounted.tagName).toBe("BASE");
         expect(mounted.target).toBe(target);
@@ -31,7 +30,6 @@ describe("** Base tag (specs) **", () => {
     it("should be able to mount a base element whose target is set to _blank", () => {
         const target = "_blank";
         mounted = Headuard.createBase({ target });
-        
 
         expect(mounted.tagName).toBe("BASE");
         expect(mounted.target).toBe(target);
@@ -41,7 +39,6 @@ describe("** Base tag (specs) **", () => {
         const target = "_blank";
         mounted = Headuard.createBase({ target });
         
-
         expect(mounted.tagName).toBe("BASE");
         expect(mounted.target).toBe(target);
     });
@@ -50,7 +47,6 @@ describe("** Base tag (specs) **", () => {
         const target = "_top";
         mounted = Headuard.createBase({ target });
         
-
         expect(mounted.tagName).toBe("BASE");
         expect(mounted.target).toBe(target);
     });
