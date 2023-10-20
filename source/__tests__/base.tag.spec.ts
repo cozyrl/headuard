@@ -1,5 +1,5 @@
 
-import { DocumentHead } from "../document.head";
+import { Headuard } from "../headuard";
 import { randomUUID } from "crypto";
 
 describe("** Base tag (specs) **", () => {
@@ -7,13 +7,13 @@ describe("** Base tag (specs) **", () => {
     var mounted: HTMLBaseElement;
 
     it("should be able to mount an base element", () => {
-        mounted = DocumentHead.createBase({});
+        mounted = Headuard.createBase({});
         expect(mounted.tagName).toBe("BASE");
     });
 
     it("should be able to mount an base element with href", () => {
         const href = `http://localhost/${randomUUID()}`;
-        mounted = DocumentHead.createBase({ href });
+        mounted = Headuard.createBase({ href });
  
         expect(mounted.tagName).toBe("BASE");
         expect(mounted.href).toBe(href);
@@ -21,7 +21,7 @@ describe("** Base tag (specs) **", () => {
 
     it("should be able to mount a base element whose target is set to _self", () => {
         const target = "_self";
-        mounted = DocumentHead.createBase({ target });
+        mounted = Headuard.createBase({ target });
         
 
         expect(mounted.tagName).toBe("BASE");
@@ -30,7 +30,7 @@ describe("** Base tag (specs) **", () => {
 
     it("should be able to mount a base element whose target is set to _blank", () => {
         const target = "_blank";
-        mounted = DocumentHead.createBase({ target });
+        mounted = Headuard.createBase({ target });
         
 
         expect(mounted.tagName).toBe("BASE");
@@ -39,7 +39,7 @@ describe("** Base tag (specs) **", () => {
 
     it("should be able to mount a base element whose target is set to _parent", () => {
         const target = "_blank";
-        mounted = DocumentHead.createBase({ target });
+        mounted = Headuard.createBase({ target });
         
 
         expect(mounted.tagName).toBe("BASE");
@@ -48,7 +48,7 @@ describe("** Base tag (specs) **", () => {
 
     it("should be able to mount a base element whose target is set to _top", () => {
         const target = "_top";
-        mounted = DocumentHead.createBase({ target });
+        mounted = Headuard.createBase({ target });
         
 
         expect(mounted.tagName).toBe("BASE");
@@ -56,8 +56,8 @@ describe("** Base tag (specs) **", () => {
     });
 
     it("should be able to unmount an base element", () => {     
-        mounted = DocumentHead.createBase({});
-        DocumentHead.unmount(mounted);
+        mounted = Headuard.createBase({});
+        Headuard.unmount(mounted);
 
         expect(document.head.contains(mounted)).toBe(false);
     });

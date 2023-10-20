@@ -1,5 +1,5 @@
 
-import { DocumentHead } from "../document.head";
+import { Headuard } from "../headuard";
 import { randomUUID } from "crypto";
 
 describe("** Title tag (specs) **", () => {
@@ -12,14 +12,14 @@ describe("** Title tag (specs) **", () => {
     })
 
     it("should be able to mount an title element with text content", () => {
-        mounted = DocumentHead.createTitle({ textContent });
+        mounted = Headuard.createTitle({ textContent });
         expect(mounted.tagName).toBe("TITLE");
         expect(mounted.textContent).toBe(textContent);
     });
 
     it("should be able to unmount an title element", () => {
-        mounted = DocumentHead.createTitle({ textContent });
-        DocumentHead.unmount(mounted);
+        mounted = Headuard.createTitle({ textContent });
+        Headuard.unmount(mounted);
         expect(document.head.contains(mounted)).toBe(false);
     });
 

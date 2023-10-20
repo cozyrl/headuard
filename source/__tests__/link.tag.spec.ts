@@ -1,20 +1,25 @@
 
-import { DocumentHead } from "../document.head";
+import { Headuard } from "../headuard";
 import { randomUUID } from "crypto";
-import { w003, w004, w005 } from "../utilities";
+
+import { 
+    hreflangWithoutHref,
+    imageSizesCanOnlyUsed,
+    imageSrcsetCanOnlyUsed 
+} from "../utilities";
 
 describe("** Link tag (specs) **", () => {
 
     var mounted: HTMLLinkElement;
 
     it("should be able to mount a link element", () => {
-        mounted = DocumentHead.createLink({});
+        mounted = Headuard.createLink({});
         expect(mounted.tagName).toBe("LINK");
     });
 
     it("should be able to mount a link element whose as is set to object", () => {
         const as = "object";
-        mounted = DocumentHead.createLink({ as });
+        mounted = Headuard.createLink({ as });
 
         expect(mounted.tagName).toBe("LINK");
         expect(mounted.as).toBe(as);
@@ -22,7 +27,7 @@ describe("** Link tag (specs) **", () => {
 
     it("should be able to mount a link element whose as is set to audio", () => {
         const as = "audio";
-        mounted = DocumentHead.createLink({ as });
+        mounted = Headuard.createLink({ as });
 
         expect(mounted.tagName).toBe("LINK");
         expect(mounted.as).toBe(as);
@@ -30,7 +35,7 @@ describe("** Link tag (specs) **", () => {
 
     it("should be able to mount a link element whose as is set to embed", () => {
         const as = "embed";
-        mounted = DocumentHead.createLink({ as });
+        mounted = Headuard.createLink({ as });
 
         expect(mounted.tagName).toBe("LINK");
         expect(mounted.as).toBe(as);
@@ -38,7 +43,7 @@ describe("** Link tag (specs) **", () => {
 
     it("should be able to mount a link element whose as is set to style", () => {
         const as = "style";
-        mounted = DocumentHead.createLink({ as });
+        mounted = Headuard.createLink({ as });
 
         expect(mounted.tagName).toBe("LINK");
         expect(mounted.as).toBe(as);
@@ -46,7 +51,7 @@ describe("** Link tag (specs) **", () => {
 
     it("should be able to mount a link element whose as is set to track", () => {
         const as = "track";
-        mounted = DocumentHead.createLink({ as });
+        mounted = Headuard.createLink({ as });
 
         expect(mounted.tagName).toBe("LINK");
         expect(mounted.as).toBe(as);
@@ -54,7 +59,7 @@ describe("** Link tag (specs) **", () => {
 
     it("should be able to mount a link element whose as is set to video", () => {
         const as = "video";
-        mounted = DocumentHead.createLink({ as });
+        mounted = Headuard.createLink({ as });
 
         expect(mounted.tagName).toBe("LINK");
         expect(mounted.as).toBe(as);
@@ -62,7 +67,7 @@ describe("** Link tag (specs) **", () => {
 
     it("should be able to mount a link element whose as is set to document", () => {
         const as = "document";
-        mounted = DocumentHead.createLink({ as });
+        mounted = Headuard.createLink({ as });
 
         expect(mounted.tagName).toBe("LINK");
         expect(mounted.as).toBe(as);
@@ -70,7 +75,7 @@ describe("** Link tag (specs) **", () => {
 
     it("should be able to mount a link element whose as is set to fetch", () => {
         const as = "fetch";
-        mounted = DocumentHead.createLink({ as });
+        mounted = Headuard.createLink({ as });
 
         expect(mounted.tagName).toBe("LINK");
         expect(mounted.as).toBe(as);
@@ -78,7 +83,7 @@ describe("** Link tag (specs) **", () => {
 
     it("should be able to mount a link element whose as is set to font", () => {
         const as = "font";
-        mounted = DocumentHead.createLink({ as });
+        mounted = Headuard.createLink({ as });
 
         expect(mounted.tagName).toBe("LINK");
         expect(mounted.as).toBe(as);
@@ -86,7 +91,7 @@ describe("** Link tag (specs) **", () => {
 
     it("should be able to mount a link element whose as is set to image", () => {
         const as = "image";
-        mounted = DocumentHead.createLink({ as });
+        mounted = Headuard.createLink({ as });
 
         expect(mounted.tagName).toBe("LINK");
         expect(mounted.as).toBe(as);
@@ -94,7 +99,7 @@ describe("** Link tag (specs) **", () => {
 
     it("should be able to mount a link element whose as is set to worker", () => {
         const as = "worker";
-        mounted = DocumentHead.createLink({ as });
+        mounted = Headuard.createLink({ as });
 
         expect(mounted.tagName).toBe("LINK");
         expect(mounted.as).toBe(as);
@@ -102,7 +107,7 @@ describe("** Link tag (specs) **", () => {
 
     it("should be able to mount a link element whose crossorigin is set to preload", () => {
         const crossOrigin = "anonymous";
-        mounted = DocumentHead.createLink({ crossOrigin });
+        mounted = Headuard.createLink({ crossOrigin });
 
         expect(mounted.tagName).toBe("LINK");
         expect(mounted.crossOrigin).toBe(crossOrigin);
@@ -110,7 +115,7 @@ describe("** Link tag (specs) **", () => {
 
     it("should be able to mount a link element whose crossorigin is set to use-credentials", () => {
         const crossOrigin = "use-credentials";
-        mounted = DocumentHead.createLink({ crossOrigin });
+        mounted = Headuard.createLink({ crossOrigin });
 
         expect(mounted.tagName).toBe("LINK");
         expect(mounted.crossOrigin).toBe(crossOrigin);
@@ -118,7 +123,7 @@ describe("** Link tag (specs) **", () => {
 
     it("should be able to mount a link element with href attribute set", () => {
         const href = `http://localhost/${randomUUID()}`;
-        mounted = DocumentHead.createLink({ href });
+        mounted = Headuard.createLink({ href });
 
         expect(mounted.tagName).toBe("LINK");
         expect(mounted.href).toBe(href);
@@ -127,12 +132,12 @@ describe("** Link tag (specs) **", () => {
     it("should warn that the hreflang attribute cannot be used if the href attribute is present", () => {
         const hreflang = randomUUID();
         const warn = jest.spyOn(console, "warn").mockImplementation();
-        mounted = DocumentHead.createLink({ hreflang });
+        mounted = Headuard.createLink({ hreflang });
 
         expect(mounted.tagName).toBe("LINK");
         expect(mounted.hreflang).toBe(hreflang);
         expect(warn).toBeCalledTimes(1);
-        expect(warn).toHaveBeenCalledWith(w003);
+        expect(warn).toHaveBeenCalledWith(hreflangWithoutHref);
         
         warn.mockRestore();
     });
@@ -141,7 +146,7 @@ describe("** Link tag (specs) **", () => {
         const href = `http://localhost/${randomUUID()}`;
         const hreflang = randomUUID();
         const warn = jest.spyOn(console, "warn").mockImplementation();
-        mounted = DocumentHead.createLink({ href, hreflang });
+        mounted = Headuard.createLink({ href, hreflang });
 
         expect(mounted.tagName).toBe("LINK");
         expect(mounted.href).toBe(href);
@@ -154,12 +159,12 @@ describe("** Link tag (specs) **", () => {
     it("should warn that the imageSizes attribute can only be used for rel='preload' and as='image'", () => {
         const imageSizes = "100px";
         const warn = jest.spyOn(console, "warn").mockImplementation();
-        mounted = DocumentHead.createLink({ imageSizes });
+        mounted = Headuard.createLink({ imageSizes });
 
         expect(mounted.tagName).toBe("LINK");
         expect(mounted.imageSizes).toBe(imageSizes);
         expect(warn).toBeCalledTimes(1);
-        expect(warn).toHaveBeenCalledWith(w004);
+        expect(warn).toHaveBeenCalledWith(imageSizesCanOnlyUsed);
         
         warn.mockRestore();
     });
@@ -169,7 +174,7 @@ describe("** Link tag (specs) **", () => {
         const rel = "preload";
         const as = "image";
         const warn = jest.spyOn(console, "warn").mockImplementation();
-        mounted = DocumentHead.createLink({ imageSizes, rel, as });
+        mounted = Headuard.createLink({ imageSizes, rel, as });
 
         expect(mounted.tagName).toBe("LINK");
         expect(mounted.imageSizes).toBe(imageSizes);
@@ -185,7 +190,7 @@ describe("** Link tag (specs) **", () => {
         const rel = "preload";
         const as = "image";
         const warn = jest.spyOn(console, "warn").mockImplementation();
-        mounted = DocumentHead.createLink({ imageSizes, rel, as });
+        mounted = Headuard.createLink({ imageSizes, rel, as });
 
         expect(mounted.tagName).toBe("LINK");
         expect(mounted.imageSizes).toBe(imageSizes);
@@ -201,7 +206,7 @@ describe("** Link tag (specs) **", () => {
         const rel = "preload";
         const as = "image";
         const warn = jest.spyOn(console, "warn").mockImplementation();
-        mounted = DocumentHead.createLink({ imageSizes, rel, as });
+        mounted = Headuard.createLink({ imageSizes, rel, as });
 
         expect(mounted.tagName).toBe("LINK");
         expect(mounted.imageSizes).toBe(imageSizes);
@@ -217,7 +222,7 @@ describe("** Link tag (specs) **", () => {
         const rel = "preload";
         const as = "image";
         const warn = jest.spyOn(console, "warn").mockImplementation();
-        mounted = DocumentHead.createLink({ imageSizes, rel, as });
+        mounted = Headuard.createLink({ imageSizes, rel, as });
 
         expect(mounted.tagName).toBe("LINK");
         expect(mounted.imageSizes).toBe(imageSizes);
@@ -233,7 +238,7 @@ describe("** Link tag (specs) **", () => {
         const rel = "preload";
         const as = "image";
         const warn = jest.spyOn(console, "warn").mockImplementation();
-        mounted = DocumentHead.createLink({ imageSizes, rel, as });
+        mounted = Headuard.createLink({ imageSizes, rel, as });
 
         expect(mounted.tagName).toBe("LINK");
         expect(mounted.imageSizes).toBe(imageSizes);
@@ -249,7 +254,7 @@ describe("** Link tag (specs) **", () => {
         const rel = "preload";
         const as = "image";
         const warn = jest.spyOn(console, "warn").mockImplementation();
-        mounted = DocumentHead.createLink({ imageSizes, rel, as });
+        mounted = Headuard.createLink({ imageSizes, rel, as });
 
         expect(mounted.tagName).toBe("LINK");
         expect(mounted.imageSizes).toBe(imageSizes);
@@ -265,7 +270,7 @@ describe("** Link tag (specs) **", () => {
         const rel = "preload";
         const as = "image";
         const warn = jest.spyOn(console, "warn").mockImplementation();
-        mounted = DocumentHead.createLink({ imageSizes, rel, as });
+        mounted = Headuard.createLink({ imageSizes, rel, as });
 
         expect(mounted.tagName).toBe("LINK");
         expect(mounted.imageSizes).toBe(imageSizes);
@@ -281,7 +286,7 @@ describe("** Link tag (specs) **", () => {
         const rel = "preload";
         const as = "image";
         const warn = jest.spyOn(console, "warn").mockImplementation();
-        mounted = DocumentHead.createLink({ imageSizes, rel, as });
+        mounted = Headuard.createLink({ imageSizes, rel, as });
 
         expect(mounted.tagName).toBe("LINK");
         expect(mounted.imageSizes).toBe(imageSizes);
@@ -297,7 +302,7 @@ describe("** Link tag (specs) **", () => {
         const rel = "preload";
         const as = "image";
         const warn = jest.spyOn(console, "warn").mockImplementation();
-        mounted = DocumentHead.createLink({ imageSizes, rel, as });
+        mounted = Headuard.createLink({ imageSizes, rel, as });
 
         expect(mounted.tagName).toBe("LINK");
         expect(mounted.imageSizes).toBe(imageSizes);
@@ -313,7 +318,7 @@ describe("** Link tag (specs) **", () => {
         const rel = "preload";
         const as = "image";
         const warn = jest.spyOn(console, "warn").mockImplementation();
-        mounted = DocumentHead.createLink({ imageSizes, rel, as });
+        mounted = Headuard.createLink({ imageSizes, rel, as });
 
         expect(mounted.tagName).toBe("LINK");
         expect(mounted.imageSizes).toBe(imageSizes);
@@ -327,12 +332,12 @@ describe("** Link tag (specs) **", () => {
     it("should warn that the imagesrcset attribute can only be used for rel='preload' and as='image'", () => {
         const imageSrcset = randomUUID();
         const warn = jest.spyOn(console, "warn").mockImplementation();
-        mounted = DocumentHead.createLink({ imageSrcset });
+        mounted = Headuard.createLink({ imageSrcset });
 
         expect(mounted.tagName).toBe("LINK");
         expect(mounted.imageSrcset).toBe(imageSrcset);
         expect(warn).toBeCalledTimes(1);
-        expect(warn).toHaveBeenCalledWith(w005);
+        expect(warn).toHaveBeenCalledWith(imageSrcsetCanOnlyUsed);
         
         warn.mockRestore();
     });
@@ -342,7 +347,7 @@ describe("** Link tag (specs) **", () => {
         const rel = "preload";
         const as = "image";
         const warn = jest.spyOn(console, "warn").mockImplementation();
-        mounted = DocumentHead.createLink({ imageSrcset, rel, as });
+        mounted = Headuard.createLink({ imageSrcset, rel, as });
 
         expect(mounted.tagName).toBe("LINK");
         expect(mounted.imageSrcset).toBe(imageSrcset);
@@ -355,7 +360,7 @@ describe("** Link tag (specs) **", () => {
 
     it("should be able to mount a link element with integrity attribute set", () => {
         const integrity = randomUUID();
-        mounted = DocumentHead.createLink({ integrity });
+        mounted = Headuard.createLink({ integrity });
 
         expect(mounted.tagName).toBe("LINK");
         expect(mounted.integrity).toBe(integrity);
@@ -363,7 +368,7 @@ describe("** Link tag (specs) **", () => {
 
     it("should be able to mount a link element with media attribute set", () => {
         const media = randomUUID();
-        mounted = DocumentHead.createLink({ media });
+        mounted = Headuard.createLink({ media });
 
         expect(mounted.tagName).toBe("LINK");
         expect(mounted.media).toBe(media);
@@ -371,7 +376,7 @@ describe("** Link tag (specs) **", () => {
 
     it("should be able to mount a link element whose referrerPolicy is set to no-referrer", () => {
         const referrerPolicy = "no-referrer";
-        mounted = DocumentHead.createLink({ referrerPolicy });
+        mounted = Headuard.createLink({ referrerPolicy });
 
         expect(mounted.tagName).toBe("LINK");
         expect(mounted.referrerPolicy).toBe(referrerPolicy);
@@ -379,7 +384,7 @@ describe("** Link tag (specs) **", () => {
 
     it("should be able to mount a link element whose referrerPolicy is set to no-referrer-when-downgrade", () => {
         const referrerPolicy = "no-referrer-when-downgrade";
-        mounted = DocumentHead.createLink({ referrerPolicy });
+        mounted = Headuard.createLink({ referrerPolicy });
 
         expect(mounted.tagName).toBe("LINK");
         expect(mounted.referrerPolicy).toBe(referrerPolicy);
@@ -387,7 +392,7 @@ describe("** Link tag (specs) **", () => {
 
     it("should be able to mount a link element whose referrerPolicy is set to origin", () => {
         const referrerPolicy = "origin";
-        mounted = DocumentHead.createLink({ referrerPolicy });
+        mounted = Headuard.createLink({ referrerPolicy });
 
         expect(mounted.tagName).toBe("LINK");
         expect(mounted.referrerPolicy).toBe(referrerPolicy);
@@ -395,7 +400,7 @@ describe("** Link tag (specs) **", () => {
 
     it("should be able to mount a link element whose referrerPolicy is set to origin-when-cross-origin", () => {
         const referrerPolicy = "origin-when-cross-origin";
-        mounted = DocumentHead.createLink({ referrerPolicy });
+        mounted = Headuard.createLink({ referrerPolicy });
 
         expect(mounted.tagName).toBe("LINK");
         expect(mounted.referrerPolicy).toBe(referrerPolicy);
@@ -403,7 +408,7 @@ describe("** Link tag (specs) **", () => {
 
     it("should be able to mount a link element whose referrerPolicy is set to unsafe-url", () => {
         const referrerPolicy = "unsafe-url";
-        mounted = DocumentHead.createLink({ referrerPolicy });
+        mounted = Headuard.createLink({ referrerPolicy });
 
         expect(mounted.tagName).toBe("LINK");
         expect(mounted.referrerPolicy).toBe(referrerPolicy);
@@ -411,7 +416,7 @@ describe("** Link tag (specs) **", () => {
 
     it("should be able to mount a link element whose rel is set to search", () => {
         const rel = "search";
-        mounted = DocumentHead.createLink({ rel });
+        mounted = Headuard.createLink({ rel });
 
         expect(mounted.tagName).toBe("LINK");
         expect(mounted.rel).toBe(rel);
@@ -419,7 +424,7 @@ describe("** Link tag (specs) **", () => {
 
     it("should be able to mount a link element whose rel is set to preload", () => {
         const rel = "preload";
-        mounted = DocumentHead.createLink({ rel });
+        mounted = Headuard.createLink({ rel });
 
         expect(mounted.tagName).toBe("LINK");
         expect(mounted.rel).toBe(rel);
@@ -427,7 +432,7 @@ describe("** Link tag (specs) **", () => {
 
     it("should be able to mount a link element whose rel is set to alternate", () => {
         const rel = "alternate";
-        mounted = DocumentHead.createLink({ rel });
+        mounted = Headuard.createLink({ rel });
 
         expect(mounted.tagName).toBe("LINK");
         expect(mounted.rel).toBe(rel);
@@ -435,7 +440,7 @@ describe("** Link tag (specs) **", () => {
 
     it("should be able to mount a link element whose rel is set to author", () => {
         const rel = "author";
-        mounted = DocumentHead.createLink({ rel });
+        mounted = Headuard.createLink({ rel });
 
         expect(mounted.tagName).toBe("LINK");
         expect(mounted.rel).toBe(rel);
@@ -443,7 +448,7 @@ describe("** Link tag (specs) **", () => {
 
     it("should be able to mount a link element whose rel is set to canonical", () => {
         const rel = "canonical";
-        mounted = DocumentHead.createLink({ rel });
+        mounted = Headuard.createLink({ rel });
 
         expect(mounted.tagName).toBe("LINK");
         expect(mounted.rel).toBe(rel);
@@ -451,7 +456,7 @@ describe("** Link tag (specs) **", () => {
 
     it("should be able to mount a link element whose rel is set to dns-prefetch", () => {
         const rel = "dns-prefetch";
-        mounted = DocumentHead.createLink({ rel });
+        mounted = Headuard.createLink({ rel });
 
         expect(mounted.tagName).toBe("LINK");
         expect(mounted.rel).toBe(rel);
@@ -459,7 +464,7 @@ describe("** Link tag (specs) **", () => {
 
     it("should be able to mount a link element whose rel is set to help", () => {
         const rel = "help";
-        mounted = DocumentHead.createLink({ rel });
+        mounted = Headuard.createLink({ rel });
 
         expect(mounted.tagName).toBe("LINK");
         expect(mounted.rel).toBe(rel);
@@ -467,7 +472,7 @@ describe("** Link tag (specs) **", () => {
 
     it("should be able to mount a link element whose rel is set to icon", () => {
         const rel = "icon";
-        mounted = DocumentHead.createLink({ rel });
+        mounted = Headuard.createLink({ rel });
 
         expect(mounted.tagName).toBe("LINK");
         expect(mounted.rel).toBe(rel);
@@ -475,7 +480,7 @@ describe("** Link tag (specs) **", () => {
 
     it("should be able to mount a link element whose rel is set to manifest", () => {
         const rel = "manifest";
-        mounted = DocumentHead.createLink({ rel });
+        mounted = Headuard.createLink({ rel });
 
         expect(mounted.tagName).toBe("LINK");
         expect(mounted.rel).toBe(rel);
@@ -483,7 +488,7 @@ describe("** Link tag (specs) **", () => {
 
     it("should be able to mount a link element whose rel is set to modulepreload", () => {
         const rel = "modulepreload";
-        mounted = DocumentHead.createLink({ rel });
+        mounted = Headuard.createLink({ rel });
 
         expect(mounted.tagName).toBe("LINK");
         expect(mounted.rel).toBe(rel);
@@ -491,7 +496,7 @@ describe("** Link tag (specs) **", () => {
 
     it("should be able to mount a link element whose rel is set to next", () => {
         const rel = "next";
-        mounted = DocumentHead.createLink({ rel });
+        mounted = Headuard.createLink({ rel });
 
         expect(mounted.tagName).toBe("LINK");
         expect(mounted.rel).toBe(rel);
@@ -499,7 +504,7 @@ describe("** Link tag (specs) **", () => {
 
     it("should be able to mount a link element whose rel is set to preconnect", () => {
         const rel = "preconnect";
-        mounted = DocumentHead.createLink({ rel });
+        mounted = Headuard.createLink({ rel });
 
         expect(mounted.tagName).toBe("LINK");
         expect(mounted.rel).toBe(rel);
@@ -507,7 +512,7 @@ describe("** Link tag (specs) **", () => {
 
     it("should be able to mount a link element whose rel is set to prefetch", () => {
         const rel = "prefetch";
-        mounted = DocumentHead.createLink({ rel });
+        mounted = Headuard.createLink({ rel });
 
         expect(mounted.tagName).toBe("LINK");
         expect(mounted.rel).toBe(rel);
@@ -515,7 +520,7 @@ describe("** Link tag (specs) **", () => {
 
     it("should be able to mount a link element whose rel is set to prerender", () => {
         const rel = "prerender";
-        mounted = DocumentHead.createLink({ rel });
+        mounted = Headuard.createLink({ rel });
 
         expect(mounted.tagName).toBe("LINK");
         expect(mounted.rel).toBe(rel);
@@ -523,7 +528,7 @@ describe("** Link tag (specs) **", () => {
 
     it("should be able to mount a link element whose rel is set to prev", () => {
         const rel = "prev";
-        mounted = DocumentHead.createLink({ rel });
+        mounted = Headuard.createLink({ rel });
 
         expect(mounted.tagName).toBe("LINK");
         expect(mounted.rel).toBe(rel);
@@ -531,7 +536,7 @@ describe("** Link tag (specs) **", () => {
 
     it("should be able to mount a link element whose rel is set to stylesheet", () => {
         const rel = "stylesheet";
-        mounted = DocumentHead.createLink({ rel });
+        mounted = Headuard.createLink({ rel });
 
         expect(mounted.tagName).toBe("LINK");
         expect(mounted.rel).toBe(rel);
@@ -539,7 +544,7 @@ describe("** Link tag (specs) **", () => {
 
     it("should be able to mount a link element whose rel is set to tag", () => {
         const rel = "tag";
-        mounted = DocumentHead.createLink({ rel });
+        mounted = Headuard.createLink({ rel });
 
         expect(mounted.tagName).toBe("LINK");
         expect(mounted.rel).toBe(rel);
@@ -547,7 +552,7 @@ describe("** Link tag (specs) **", () => {
 
     it("should be able to mount a link element with title attribute set", () => {
         const title = randomUUID();
-        mounted = DocumentHead.createLink({ title });
+        mounted = Headuard.createLink({ title });
 
         expect(mounted.tagName).toBe("LINK");
         expect(mounted.title).toBe(title);
@@ -555,7 +560,7 @@ describe("** Link tag (specs) **", () => {
 
     it("should be able to mount a link element whose type is set to text/css", () => {
         const type = "text/css";
-        mounted = DocumentHead.createLink({ type });
+        mounted = Headuard.createLink({ type });
 
         expect(mounted.tagName).toBe("LINK");
         expect(mounted.type).toBe(type);
@@ -563,7 +568,7 @@ describe("** Link tag (specs) **", () => {
 
     it("should be able to mount a link element whose type is set to text/sass", () => {
         const type = "text/sass";
-        mounted = DocumentHead.createLink({ type });
+        mounted = Headuard.createLink({ type });
 
         expect(mounted.tagName).toBe("LINK");
         expect(mounted.type).toBe(type);
@@ -571,7 +576,7 @@ describe("** Link tag (specs) **", () => {
 
     it("should be able to mount a link element whose type is set to text/scss", () => {
         const type = "text/scss";
-        mounted = DocumentHead.createLink({ type });
+        mounted = Headuard.createLink({ type });
 
         expect(mounted.tagName).toBe("LINK");
         expect(mounted.type).toBe(type);
@@ -579,7 +584,7 @@ describe("** Link tag (specs) **", () => {
 
     it("should be able to mount a link element whose type is set to text/javascript", () => {
         const type = "text/javascript";
-        mounted = DocumentHead.createLink({ type });
+        mounted = Headuard.createLink({ type });
 
         expect(mounted.tagName).toBe("LINK");
         expect(mounted.type).toBe(type);
@@ -587,7 +592,7 @@ describe("** Link tag (specs) **", () => {
 
     it("should be able to mount a link element whose type is set to image/png", () => {
         const type = "image/png";
-        mounted = DocumentHead.createLink({ type });
+        mounted = Headuard.createLink({ type });
 
         expect(mounted.tagName).toBe("LINK");
         expect(mounted.type).toBe(type);
@@ -595,7 +600,7 @@ describe("** Link tag (specs) **", () => {
 
     it("should be able to mount a link element whose type is set to image/jpeg", () => {
         const type = "image/jpeg";
-        mounted = DocumentHead.createLink({ type });
+        mounted = Headuard.createLink({ type });
 
         expect(mounted.tagName).toBe("LINK");
         expect(mounted.type).toBe(type);
@@ -603,7 +608,7 @@ describe("** Link tag (specs) **", () => {
 
     it("should be able to mount a link element whose type is set to image/gif", () => {
         const type = "image/gif";
-        mounted = DocumentHead.createLink({ type });
+        mounted = Headuard.createLink({ type });
 
         expect(mounted.tagName).toBe("LINK");
         expect(mounted.type).toBe(type);
@@ -611,7 +616,7 @@ describe("** Link tag (specs) **", () => {
 
     it("should be able to mount a link element whose type is set to font/woff", () => {
         const type = "font/woff";
-        mounted = DocumentHead.createLink({ type });
+        mounted = Headuard.createLink({ type });
 
         expect(mounted.tagName).toBe("LINK");
         expect(mounted.type).toBe(type);
@@ -619,7 +624,7 @@ describe("** Link tag (specs) **", () => {
 
     it("should be able to mount a link element whose type is set to font/woff2", () => {
         const type = "font/woff2";
-        mounted = DocumentHead.createLink({ type });
+        mounted = Headuard.createLink({ type });
 
         expect(mounted.tagName).toBe("LINK");
         expect(mounted.type).toBe(type);
@@ -627,7 +632,7 @@ describe("** Link tag (specs) **", () => {
 
     it("should be able to mount a link element whose type is set to application/json", () => {
         const type = "application/json";
-        mounted = DocumentHead.createLink({ type });
+        mounted = Headuard.createLink({ type });
 
         expect(mounted.tagName).toBe("LINK");
         expect(mounted.type).toBe(type);
@@ -635,7 +640,7 @@ describe("** Link tag (specs) **", () => {
 
     it("should be able to mount a link element whose type is set to application/xml", () => {
         const type = "application/xml";
-        mounted = DocumentHead.createLink({ type });
+        mounted = Headuard.createLink({ type });
 
         expect(mounted.tagName).toBe("LINK");
         expect(mounted.type).toBe(type);
