@@ -6,7 +6,8 @@ import {
     deferModuleScripts,
     hreflangWithoutHref,
     imageSizesCanOnlyUsed, 
-    imageSrcsetCanOnlyUsed 
+    imageSrcsetCanOnlyUsed,
+    sizesCanOnlyUsed
 } from "./utilities";
 
 import { 
@@ -205,17 +206,22 @@ export class Headuard {
             media,
             title,
             type,
-            as
+            as,
+            sizes
         } = attributes;
 
         if(hreflang && !href) console.warn(hreflangWithoutHref);
 
-        if(imageSizes &&  !(rel === "preload" && as === "image")) {
+        if(imageSizes && !(rel === "preload" && as === "image")) {
             console.warn(imageSizesCanOnlyUsed);
         }
 
-        if(imageSrcset &&  !(rel === "preload" && as === "image")) {
+        if(imageSrcset && !(rel === "preload" && as === "image")) {
             console.warn(imageSrcsetCanOnlyUsed);
+        }
+
+        if(sizes && rel !== "icon") {
+            console.warn(sizesCanOnlyUsed);
         }
 
         // optional
@@ -231,6 +237,7 @@ export class Headuard {
         rel ? linkElem.rel = rel : undefined;
         title ? linkElem.title = title : undefined;
         type ? linkElem.type = type : undefined;
+        sizes ? linkElem.setAttribute("sizes", sizes) : undefined;
 
         // global atrributes
         this.setOptionalAttributes(attributes, linkElem);

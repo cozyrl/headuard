@@ -27,6 +27,9 @@ export interface LinkTag extends GlobalAttributes {
     | "prev"
     | "search"
     | "stylesheet"
+    | "apple-touch-icon"
+    | "mask-icon"
+    | "shortcut icon"
     | "tag";
 
     /**
@@ -127,4 +130,10 @@ export interface LinkTag extends GlobalAttributes {
     */
 
     hreflang?: string;
+
+    /**
+        * The sizes attribute specifies the sizes of icons for visual media.
+    */
+
+    sizes?: `${number}x${number}`| `${number}X${number}`;
 }

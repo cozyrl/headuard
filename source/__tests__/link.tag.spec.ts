@@ -5,7 +5,8 @@ import { randomUUID } from "crypto";
 import { 
     hreflangWithoutHref,
     imageSizesCanOnlyUsed,
-    imageSrcsetCanOnlyUsed 
+    imageSrcsetCanOnlyUsed,
+    sizesCanOnlyUsed 
 } from "../utilities";
 
 describe("** Link tag (specs) **", () => {
@@ -550,6 +551,30 @@ describe("** Link tag (specs) **", () => {
         expect(mounted.rel).toBe(rel);
     });
 
+    it("should be able to mount a link element whose rel is set to apple-touch-icon", () => {
+        const rel = "apple-touch-icon";
+        mounted = Headuard.createLink({ rel });
+
+        expect(mounted.tagName).toBe("LINK");
+        expect(mounted.rel).toBe(rel);
+    });
+
+    it("should be able to mount a link element whose rel is set to mask-icon", () => {
+        const rel = "mask-icon";
+        mounted = Headuard.createLink({ rel });
+
+        expect(mounted.tagName).toBe("LINK");
+        expect(mounted.rel).toBe(rel);
+    });
+
+    it("should be able to mount a link element whose rel is set to shortcut icon", () => {
+        const rel = "shortcut icon";
+        mounted = Headuard.createLink({ rel });
+
+        expect(mounted.tagName).toBe("LINK");
+        expect(mounted.rel).toBe(rel);
+    });
+
     it("should be able to mount a link element with title attribute set", () => {
         const title = randomUUID();
         mounted = Headuard.createLink({ title });
@@ -644,6 +669,33 @@ describe("** Link tag (specs) **", () => {
 
         expect(mounted.tagName).toBe("LINK");
         expect(mounted.type).toBe(type);
+    });
+
+    it("should warn that the sizes attribute can only be used for rel='icon'", () => {
+        const sizes = "10x10";
+        const warn = jest.spyOn(console, "warn").mockImplementation();
+        mounted = Headuard.createLink({ sizes });
+
+        expect(mounted.tagName).toBe("LINK");
+        expect(mounted.sizes).toBe(sizes);
+        expect(warn).toBeCalledTimes(1);
+        expect(warn).toHaveBeenCalledWith(sizesCanOnlyUsed);
+        
+        warn.mockRestore();
+    });
+
+    it("should be able to mount a link element whose sizes is set properly", () => {
+        const sizes = "10x10";
+        const rel = "icon";
+        const warn = jest.spyOn(console, "warn").mockImplementation();
+        mounted = Headuard.createLink({ sizes, rel });
+
+        expect(mounted.tagName).toBe("LINK");
+        expect(mounted.sizes).toBe(sizes);
+        expect(mounted.rel).toBe(rel);
+        expect(warn).toBeCalledTimes(0);
+
+        warn.mockRestore();
     });
 
 });

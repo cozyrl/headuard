@@ -4,3 +4,4 @@ export const deferModuleScripts = "The defer attribute has no effect on module s
 export const hreflangWithoutHref = "The hreflang attribute can only be used if the href attribute is present.";
 export const imageSizesCanOnlyUsed = "The imagesizes attribute can only be used for rel='preload' and as='image'.";
 export const imageSrcsetCanOnlyUsed = "The imagesrcset attribute can only be used for rel='preload' and as='image'.";
+export const sizesCanOnlyUsed = "The sizes attribute can only be used if rel='icon'."
