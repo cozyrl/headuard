@@ -5,15 +5,63 @@
 
 <h1 align="center">Headuard API Reference</h1>
 
+Certainly! To provide enums for the possible values of attributes in your interfaces, we'll include them in the API reference. Here are the enums for the attributes mentioned in your interfaces:
+
+---
+
+## Global Attributes
+
+All methods in `Headuard` support the following global attributes:
+
+- `accessKey`: A keyboard shortcut to access an element.
+  - Possible values: `"string"` (e.g., `"A"`, `"Ctrl+M"`, etc.)
+
+- `autoCapitalize`: Controls capitalization of text input.
+  - Possible values: `"off"`, `"none"`, `"on"`, `"sentences"`, `"words"`, `"characters"`.
+
+- `contentEditable`: Indicates if the element's content is editable.
+  - Possible values: `"true"`, `"false"`, `"inherit"`.
+
+- `dir`: The direction of text.
+  - Possible values: `"ltr"`, `"rtl"`, `"auto"`.
+
+- `draggable`: Indicates if the element can be dragged.
+  - Possible values: `true`, `false`.
+
+- `hidden`: Indicates if the element should be hidden.
+  - Possible values: `true`, `false`.
+
+- `id`: A unique identifier for the element.
+  - Possible values: `"string"` (e.g., `"myElement"`).
+
+- `lang`: The language of the element's content.
+  - Possible values: `"string"` (e.g., `"en-US"`, `"fr"`, etc.).
+
+- `slot`: The name of the slot that the element belongs to.
+  - Possible values: `"string"` (e.g., `"header"`, `"footer"`, etc.).
+
+- `spellCheck`: Indicates if spellchecking should be applied to the element's text content.
+  - Possible values: `true`, `false`.
+
+- `tabIndex`: The tabindex of the element.
+  - Possible values: `number` (e.g., `0`, `1`, `2`, etc.).
+
+- `title`: Additional information about the element.
+  - Possible values: `"string"` (e.g., `"My Element"`).
+
+- `translate`: Indicates if the element's content should be translated.
+  - Possible values: `true`, `false`.
+
+---
+
 ## `createTitle(attributes: TitleTag): HTMLTitleElement`
 
 Creates a `<title>` element and appends it to the document head.
 
-- **Parameters**:
-  - `attributes` (required): An object containing attributes for the `<title>` element. It must include a `textContent` property.
+### `TitleTag` Attributes:
 
-- **Returns**:
-  - Returns the created `<title>` element.
+- `textContent`: The text content of the title element.
+  - Possible values: `"string"` (e.g., `"My Page Title"`).
 
 ---
 
@@ -21,11 +69,13 @@ Creates a `<title>` element and appends it to the document head.
 
 Creates a `<base>` element and appends it to the document head.
 
-- **Parameters**:
-  - `attributes` (optional): An object containing attributes for the `<base>` element. It may include `href` and `target` properties.
+### `BaseTag` Attributes:
 
-- **Returns**:
-  - Returns the created `<base>` element.
+- `href`: Gets or sets the baseline URL on which relative links are based.
+  - Possible values: `"string"` (e.g., `"/base"`, `"https://example.com"`).
+
+- `target`: Sets or retrieves the window or frame at which to target content.
+  - Possible values: `"_self"`, `"_blank"`, `"_parent"`, `"_top"`.
 
 ---
 
@@ -33,11 +83,19 @@ Creates a `<base>` element and appends it to the document head.
 
 Creates a `<meta>` element and appends it to the document head.
 
-- **Parameters**:
-  - `attributes` (optional): An object containing attributes for the `<meta>` element. It may include `httpEquiv`, `name`, `content`, and `charset` properties.
+### `MetaTag` Attributes:
 
-- **Returns**:
-  - Returns the created `<meta>` element.
+- `httpEquiv`: Information used to bind the value of a content attribute of a meta element to an HTTP response header.
+  - Possible values: `"content-security-policy"`, `"content-type"`, `"default-style"`, `"x-ua-compatible"`.
+
+- `name`: The name attribute of the meta tag.
+  - Possible values: `"string"` (e.g., `"viewport"`, `"description"`, etc.).
+
+- `content`: The content attribute of the meta tag.
+  - Possible values: `"string"` (e.g., `"width=device-width, initial-scale=1"`).
+
+- `charset`: The character encoding declaration for the document.
+  - Possible values: `"string"` (e.g., `"UTF-8"`, `"ISO-8859-1"`, etc.).
 
 ---
 
@@ -45,11 +103,36 @@ Creates a `<meta>` element and appends it to the document head.
 
 Creates a `<script>` element and appends it to the document head.
 
-- **Parameters**:
-  - `attributes` (optional): An object containing attributes for the `<script>` element. It may include `type`, `defer`, `src`, `async`, `crossOrigin`, `integrity`, `noModule`, `nonce`, and `referrerPolicy` properties.
+### `ScriptTag` Attributes:
 
-- **Returns**:
-  - Returns the created `<script>` element.
+- `src`: The URL of the external script file.
+  - Possible values: `"string"` (e.g., `"https://example.com/script.js"`).
+
+- `type`: MIME type for the associated scripting engine.
+  - Possible values: `"text/javascript"`, `"module"`, `"importmap"`.
+
+- `async`: Indicates that the script should be executed asynchronously.
+  - Possible values: `true`, `false`.
+
+- `crossOrigin`: The CORS setting for the script.
+  - Possible values: `"string"` or `null` (e.g., `"anonymous"`, `"use-credentials"`, `null`).
+
+- `defer`: Indicates that the script should be executed after the page has finished parsing.
+  - Possible values: `true`, `false`.
+
+- `integrity`: The cryptographic hash value of the linked resource.
+  -
+
+ Possible values: `"string"` (e.g., `"sha256-abc123"`).
+
+- `noModule`: Indicates that the script should be ignored if the browser does not support modules.
+  - Possible values: `true`, `false`.
+
+- `nonce`: A cryptographic nonce that can be used in combination with CSP settings.
+  - Possible values: `"string"` (e.g., `"abc123"`).
+
+- `referrerPolicy`: The referrer policy for the script.
+  - Possible values: `"no-referrer"`, `"no-referrer-when-downgrade"`, `"origin"`, `"origin-when-cross-origin"`, `"same-origin"`, `"strict-origin"`, `"strict-origin-when-cross-origin"`, `"unsafe-url"`.
 
 ---
 
@@ -57,20 +140,40 @@ Creates a `<script>` element and appends it to the document head.
 
 Creates a `<link>` element and appends it to the document head.
 
-- **Parameters**:
-  - `attributes` (optional): An object containing attributes for the `<link>` element. It may include `hreflang`, `href`, `imageSizes`, `rel`, `imageSrcset`, `crossOrigin`, `referrerPolicy`, `integrity`, `media`, `title`, `type`, and `as` properties.
+### `LinkTag` Attributes:
 
-- **Returns**:
-  - Returns the created `<link>` element.
+- `rel`: Specifies the relationship between the current document and the linked resource.
+  - Possible values: `"alternate"`, `"author"`, `"canonical"`, `"dns-prefetch"`, `"help"`, `"icon"`, `"manifest"`, `"modulepreload"`, `"next"`, `"preconnect"`, `"prefetch"`, `"preload"`, `"prerender"`, `"prev"`, `"search"`, `"stylesheet"`, `"tag"`.
 
----
+- `href`: Provides the destination of the linked resource.
+  - Possible values: `"string"` (e.g., `"https://example.com/styles.css"`).
 
-## `unmount(headElement: HeadElement): HTMLHeadElement`
+- `title`: Provides advisory information about the linked resource's content.
+  - Possible values: `"string"` (e.g., `"Stylesheet"`).
 
-Unmounts a head element from the document head.
+- `imageSizes`: Specifies a list of image candidates and their respective display densities. Used in conjunction with `rel="preload"` and `as="image"`.
+  - Possible values: See imageSizes values.
 
-- **Parameters**:
-  - `headElement` (required): The head element to unmount.
+- `imageSrcset`: Specifies a list of image candidates and their respective display densities. Used in conjunction with `rel="preload"` and `as="image"`.
+  - Possible values: `"string"` (e.g., `"image-1x.jpg 1x, image-2x.jpg 2x"`).
 
-- **Returns**:
-  - Returns the unmounted `<head>` element.
+- `integrity`: Specifies the integrity hash for the linked resource.
+  - Possible values: `"string"` (e.g., `"sha256-abc123"`).
+
+- `media`: Specifies the media types for which the linked resource is designed.
+  - Possible values: `"string"` (e.g., `"screen and (min-width: 768px)"`).
+
+- `referrerPolicy`: Specifies the referrer policy for the linked resource.
+  - Possible values: `"no-referrer"`, `"no-referrer-when-downgrade"`, `"origin"`, `"origin-when-cross-origin"`, `"unsafe-url"`.
+
+- `type`: Specifies the MIME type of the linked resource.
+  - Possible values: `"text/css"`, `"text/sass"`, `"text/scss"`, `"text/javascript"`, `"image/png"`, `"image/jpeg"`, `"image/gif"`, `"font/woff"`, `"font/woff2"`, `"application/json"`, `"application/xml"`.
+
+- `as`: Specifies the intended behavior for the linked resource.
+  - Possible values: `"audio"`, `"document"`, `"embed"`, `"fetch"`, `"font"`, `"image"`, `"object"`, `"style"`, `"track"`, `"video"`, `"worker"`.
+
+- `crossOrigin`: Specifies the crossorigin attribute for the linked resource.
+  - Possible values: `"anonymous"`, `"use-credentials"`.
+
+- `hreflang`: Specifies the language of the linked resource.
+  - Possible values: `"string"` (e.g., `"en"`, `"fr-FR"`, etc.).
