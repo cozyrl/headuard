@@ -207,7 +207,8 @@ export class Headuard {
             title,
             type,
             as,
-            sizes
+            sizes,
+            color
         } = attributes;
 
         if(hreflang && !href) console.warn(hreflangWithoutHref);
@@ -238,6 +239,7 @@ export class Headuard {
         title ? linkElem.title = title : undefined;
         type ? linkElem.type = type : undefined;
         sizes ? linkElem.setAttribute("sizes", sizes) : undefined;
+        color ? linkElem.setAttribute("color", color) : undefined;
 
         // global atrributes
         this.setOptionalAttributes(attributes, linkElem);

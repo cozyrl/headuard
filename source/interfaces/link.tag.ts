@@ -136,4 +136,10 @@ export interface LinkTag extends GlobalAttributes {
     */
 
     sizes?: `${number}x${number}`| `${number}X${number}`;
+
+    /**
+        * The color value. 
+    */
+
+    color?: string;
 }

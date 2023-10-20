@@ -698,4 +698,12 @@ describe("** Link tag (specs) **", () => {
         warn.mockRestore();
     });
 
+    it("should be able to mount a link element whose color is set", () => {
+        const color = randomUUID();
+        mounted = Headuard.createLink({ color });
+
+        expect(mounted.tagName).toBe("LINK");
+        expect(mounted.getAttribute("color")).toBe(color);
+    });
+
 });
