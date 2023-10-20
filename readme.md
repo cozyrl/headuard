@@ -5,8 +5,11 @@
 
 <h1 align="center">Headuard</h1>
 
-![npm](https://img.shields.io/npm/v/headuard)
-![npm bundle size](https://img.shields.io/bundlephobia/min/headuard)
+<p align="center">
+    <img alt="npm" src="https://img.shields.io/npm/v/@cozyrl/headuard"/>
+    <img alt="npm bundle size" src="https://img.shields.io/bundlephobia/min/@cozyrl/headuard"/>
+</p>
+
 
 <p align="center">
 Headuard is an npm package that provides a utility class for creating and managing head elements in the DOM. It simplifies the process of dynamically adding essential head elements to your web page, such as title, base, meta, script, and link.
