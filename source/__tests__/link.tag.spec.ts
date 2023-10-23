@@ -130,233 +130,177 @@ describe("** Link tag (specs) **", () => {
         expect(mounted.href).toBe(href);
     });
 
-    it("should warn that the hreflang attribute cannot be used if the href attribute is present", () => {
+    it("should generate an error indicating that the hreflang attribute cannot be used if the href attribute is present", () => {
         const hreflang = randomUUID();
-        const warn = jest.spyOn(console, "warn").mockImplementation();
-        mounted = Headuard.createLink({ hreflang });
 
-        expect(mounted.tagName).toBe("LINK");
-        expect(mounted.hreflang).toBe(hreflang);
-        expect(warn).toBeCalledTimes(1);
-        expect(warn).toHaveBeenCalledWith(hreflangWithoutHref);
-        
-        warn.mockRestore();
+        expect(() => {
+            mounted = Headuard.createLink({ hreflang });
+            expect(mounted.tagName).toBe("LINK");
+            expect(mounted.hreflang).toBe(hreflang);
+        }).toThrowError(hreflangWithoutHref);
     });
 
-    it("should be able to mount a link element with the hreflang and href attributes set without warning", () => {
+    it("should be able to mount a link element with the hreflang and href attributes set", () => {
         const href = `http://localhost/${randomUUID()}`;
         const hreflang = randomUUID();
-        const warn = jest.spyOn(console, "warn").mockImplementation();
         mounted = Headuard.createLink({ href, hreflang });
 
         expect(mounted.tagName).toBe("LINK");
         expect(mounted.href).toBe(href);
         expect(mounted.hreflang).toBe(hreflang);
-        expect(warn).toBeCalledTimes(0);
-
-        warn.mockRestore();
     });
 
-    it("should warn that the imageSizes attribute can only be used for rel='preload' and as='image'", () => {
+    it("should generate an error indicating that the imageSizes attribute can only be used for rel='preload' and as='image'", () => {
         const imageSizes = "100px";
-        const warn = jest.spyOn(console, "warn").mockImplementation();
-        mounted = Headuard.createLink({ imageSizes });
 
-        expect(mounted.tagName).toBe("LINK");
-        expect(mounted.imageSizes).toBe(imageSizes);
-        expect(warn).toBeCalledTimes(1);
-        expect(warn).toHaveBeenCalledWith(imageSizesCanOnlyUsed);
-        
-        warn.mockRestore();
+        expect(() => {
+            mounted = Headuard.createLink({ imageSizes });
+            expect(mounted.tagName).toBe("LINK");
+            expect(mounted.imageSizes).toBe(imageSizes);
+        }).toThrowError(imageSizesCanOnlyUsed);
+
     });
 
     it("should be able to mount a link element with imageSizes attribute set to auto", () => {
         const imageSizes = "auto";
         const rel = "preload";
         const as = "image";
-        const warn = jest.spyOn(console, "warn").mockImplementation();
         mounted = Headuard.createLink({ imageSizes, rel, as });
 
         expect(mounted.tagName).toBe("LINK");
         expect(mounted.imageSizes).toBe(imageSizes);
         expect(mounted.rel).toBe(rel);
         expect(mounted.as).toBe(as);
-        expect(warn).toBeCalledTimes(0);
-
-        warn.mockRestore();
     });
 
     it("should be able to mount a link element with imageSizes attribute set to auto", () => {
         const imageSizes = "auto";
         const rel = "preload";
         const as = "image";
-        const warn = jest.spyOn(console, "warn").mockImplementation();
         mounted = Headuard.createLink({ imageSizes, rel, as });
 
         expect(mounted.tagName).toBe("LINK");
         expect(mounted.imageSizes).toBe(imageSizes);
         expect(mounted.rel).toBe(rel);
         expect(mounted.as).toBe(as);
-        expect(warn).toBeCalledTimes(0);
-
-        warn.mockRestore();
     });
 
     it("should be able to mount a link element with imageSizes attribute set in pixels", () => {
         const imageSizes = "100px";
         const rel = "preload";
         const as = "image";
-        const warn = jest.spyOn(console, "warn").mockImplementation();
         mounted = Headuard.createLink({ imageSizes, rel, as });
 
         expect(mounted.tagName).toBe("LINK");
         expect(mounted.imageSizes).toBe(imageSizes);
         expect(mounted.rel).toBe(rel);
         expect(mounted.as).toBe(as);
-        expect(warn).toBeCalledTimes(0);
-
-        warn.mockRestore();
     });
 
     it("should be able to mount a link element with imageSizes attribute set in  em units", () => {
         const imageSizes = "2em";
         const rel = "preload";
         const as = "image";
-        const warn = jest.spyOn(console, "warn").mockImplementation();
         mounted = Headuard.createLink({ imageSizes, rel, as });
 
         expect(mounted.tagName).toBe("LINK");
         expect(mounted.imageSizes).toBe(imageSizes);
         expect(mounted.rel).toBe(rel);
         expect(mounted.as).toBe(as);
-        expect(warn).toBeCalledTimes(0);
-
-        warn.mockRestore();
     });
 
     it("should be able to mount a link element with imageSizes attribute set in percentage", () => {
         const imageSizes = "45%";
         const rel = "preload";
         const as = "image";
-        const warn = jest.spyOn(console, "warn").mockImplementation();
         mounted = Headuard.createLink({ imageSizes, rel, as });
 
         expect(mounted.tagName).toBe("LINK");
         expect(mounted.imageSizes).toBe(imageSizes);
         expect(mounted.rel).toBe(rel);
         expect(mounted.as).toBe(as);
-        expect(warn).toBeCalledTimes(0);
-
-        warn.mockRestore();
     });
 
     it("should be able to mount a link element with imageSizes attribute set in Viewport Width", () => {
         const imageSizes = "23vw";
         const rel = "preload";
         const as = "image";
-        const warn = jest.spyOn(console, "warn").mockImplementation();
         mounted = Headuard.createLink({ imageSizes, rel, as });
 
         expect(mounted.tagName).toBe("LINK");
         expect(mounted.imageSizes).toBe(imageSizes);
         expect(mounted.rel).toBe(rel);
         expect(mounted.as).toBe(as);
-        expect(warn).toBeCalledTimes(0);
-
-        warn.mockRestore();
     });
 
     it("should be able to mount a link element with imageSizes attribute set in Viewport Height", () => {
         const imageSizes = "76vh";
         const rel = "preload";
         const as = "image";
-        const warn = jest.spyOn(console, "warn").mockImplementation();
         mounted = Headuard.createLink({ imageSizes, rel, as });
 
         expect(mounted.tagName).toBe("LINK");
         expect(mounted.imageSizes).toBe(imageSizes);
         expect(mounted.rel).toBe(rel);
         expect(mounted.as).toBe(as);
-        expect(warn).toBeCalledTimes(0);
-
-        warn.mockRestore();
     });
 
     it("should be able to mount a link element with imageSizes attribute set in Viewport Minimum", () => {
         const imageSizes = "5vmin";
         const rel = "preload";
         const as = "image";
-        const warn = jest.spyOn(console, "warn").mockImplementation();
         mounted = Headuard.createLink({ imageSizes, rel, as });
 
         expect(mounted.tagName).toBe("LINK");
         expect(mounted.imageSizes).toBe(imageSizes);
         expect(mounted.rel).toBe(rel);
         expect(mounted.as).toBe(as);
-        expect(warn).toBeCalledTimes(0);
-
-        warn.mockRestore();
     });
 
     it("should be able to mount a link element with imageSizes attribute set in Viewport Maximum", () => {
         const imageSizes = "8vmax";
         const rel = "preload";
         const as = "image";
-        const warn = jest.spyOn(console, "warn").mockImplementation();
         mounted = Headuard.createLink({ imageSizes, rel, as });
 
         expect(mounted.tagName).toBe("LINK");
         expect(mounted.imageSizes).toBe(imageSizes);
         expect(mounted.rel).toBe(rel);
         expect(mounted.as).toBe(as);
-        expect(warn).toBeCalledTimes(0);
-
-        warn.mockRestore();
     });
 
     it("should be able to mount a link element with imageSizes attribute set in complex calculations", () => {
         const imageSizes = "calc(50% - 10px)";
         const rel = "preload";
         const as = "image";
-        const warn = jest.spyOn(console, "warn").mockImplementation();
         mounted = Headuard.createLink({ imageSizes, rel, as });
 
         expect(mounted.tagName).toBe("LINK");
         expect(mounted.imageSizes).toBe(imageSizes);
         expect(mounted.rel).toBe(rel);
         expect(mounted.as).toBe(as);
-        expect(warn).toBeCalledTimes(0);
-
-        warn.mockRestore();
     });
 
-    it("should warn that the imagesrcset attribute can only be used for rel='preload' and as='image'", () => {
+    it("should generate an error indicating that the imagesrcset attribute can only be used for rel='preload' and as='image'", () => {
         const imageSrcset = randomUUID();
-        const warn = jest.spyOn(console, "warn").mockImplementation();
-        mounted = Headuard.createLink({ imageSrcset });
 
-        expect(mounted.tagName).toBe("LINK");
-        expect(mounted.imageSrcset).toBe(imageSrcset);
-        expect(warn).toBeCalledTimes(1);
-        expect(warn).toHaveBeenCalledWith(imageSrcsetCanOnlyUsed);
-        
-        warn.mockRestore();
+        expect(() => {
+            mounted = Headuard.createLink({ imageSrcset });
+            expect(mounted.tagName).toBe("LINK");
+            expect(mounted.imageSrcset).toBe(imageSrcset);
+        }).toThrowError(imageSrcsetCanOnlyUsed);
     });
 
     it("should be able to mount a link element with imagesrcset attribute set", () => {
         const imageSrcset = randomUUID();
         const rel = "preload";
         const as = "image";
-        const warn = jest.spyOn(console, "warn").mockImplementation();
         mounted = Headuard.createLink({ imageSrcset, rel, as });
 
         expect(mounted.tagName).toBe("LINK");
         expect(mounted.imageSrcset).toBe(imageSrcset);
         expect(mounted.rel).toBe(rel);
         expect(mounted.as).toBe(as);
-        expect(warn).toBeCalledTimes(0);
-
-        warn.mockRestore();
     });
 
     it("should be able to mount a link element with integrity attribute set", () => {
@@ -671,31 +615,24 @@ describe("** Link tag (specs) **", () => {
         expect(mounted.type).toBe(type);
     });
 
-    it("should warn that the sizes attribute can only be used for rel='icon'", () => {
+    it("should generate an error indicating that the sizes attribute can only be used for rel='icon'", () => {
         const sizes = "10x10";
-        const warn = jest.spyOn(console, "warn").mockImplementation();
-        mounted = Headuard.createLink({ sizes });
-
-        expect(mounted.tagName).toBe("LINK");
-        expect(mounted.sizes).toBe(sizes);
-        expect(warn).toBeCalledTimes(1);
-        expect(warn).toHaveBeenCalledWith(sizesCanOnlyUsed);
-        
-        warn.mockRestore();
+    
+        expect(() => {
+            mounted = Headuard.createLink({ sizes });
+            expect(mounted.tagName).toBe("LINK");
+            expect(mounted.sizes).toBe(sizes);
+        }).toThrowError(sizesCanOnlyUsed);
     });
 
     it("should be able to mount a link element whose sizes is set properly", () => {
         const sizes = "10x10";
-        const rel = "icon";
-        const warn = jest.spyOn(console, "warn").mockImplementation();
+        const rel = "apple-touch-icon";
         mounted = Headuard.createLink({ sizes, rel });
 
         expect(mounted.tagName).toBe("LINK");
         expect(mounted.sizes).toBe(sizes);
         expect(mounted.rel).toBe(rel);
-        expect(warn).toBeCalledTimes(0);
-
-        warn.mockRestore();
     });
 
     it("should be able to mount a link element whose color is set", () => {
