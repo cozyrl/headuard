@@ -54,36 +54,29 @@ describe("** Script tag (specs) **", () => {
         expect(mounted.defer).toBeTruthy()
     });
 
-    it("should warn about the defer attribute having no effect on module scripts", () => {
+    it("should generate an error indicating that the defer attribute has no effect on module scripts", () => {
         const defer = true;
         const type = 'module';
         const src = `http://localhost/${randomUUID()}`;
 
-        const warn = jest.spyOn(console, "warn").mockImplementation()
-        mounted = Headuard.createScript({ defer, type, src });
-
-        expect(mounted.tagName).toBe("SCRIPT");
-        expect(mounted.defer).toBeTruthy();
-        expect(mounted.type).toBe(type);
-        expect(mounted.src).toBe(src);
-        expect(warn).toBeCalledTimes(1);
-        expect(warn).toHaveBeenCalledWith(srcAbsent);
-        
-        warn.mockRestore();
+        expect(() => {
+            mounted = Headuard.createScript({ defer, type, src });
+            expect(mounted.tagName).toBe("SCRIPT");
+            expect(mounted.defer).toBeTruthy();
+            expect(mounted.type).toBe(type);
+            expect(mounted.src).toBe(src);
+        }).toThrowError(srcAbsent)
     });
 
     it("should warn about the defer attribute must not be used if the src attribute is absent", () => {
         const defer = true;
 
-        const warn = jest.spyOn(console, "warn").mockImplementation()
-        mounted = Headuard.createScript({ defer });
-
-        expect(mounted.tagName).toBe("SCRIPT");
-        expect(mounted.defer).toBeTruthy();
-        expect(warn).toBeCalledTimes(1);
-        expect(warn).toHaveBeenCalledWith(deferModuleScripts);
-        
-        warn.mockRestore();
+        expect(() => {
+            mounted = Headuard.createScript({ defer });
+            expect(mounted.tagName).toBe("SCRIPT");
+            expect(mounted.tagName).toBe("SCRIPT");
+            expect(mounted.defer).toBeTruthy();
+        }).toThrowError(deferModuleScripts)
     });
 
     it("should be able to mount a script element whose defer is set to false", () => {
