@@ -165,8 +165,15 @@ export class Headuard {
             referrerPolicy
         } = attributes;
 
-        if(type === "module" && defer) console.warn(srcAbsent);
-        if(!src && defer) console.warn(deferModuleScripts);
+        // This attribute must not be used if the src attribute is absent (i.e. for inline scripts), in this case it would have no effect.
+        if(type === "module" && defer) {
+            throw Error(srcAbsent);
+        }
+
+        // The defer attribute has no effect on module scripts — they defer by default.
+        if(!src && defer) {
+            throw Error(deferModuleScripts);
+        }
 
         // optional
         src ? scriptElem.src = src : undefined;
@@ -211,18 +218,24 @@ export class Headuard {
             color
         } = attributes;
 
-        if(hreflang && !href) console.warn(hreflangWithoutHref);
+        // The hreflang attribute can only be used if the href attribute is present.
+        if(hreflang && !href) {
+            throw Error(hreflangWithoutHref);
+        } 
 
+        // The imagesizes attribute can only be used for rel='preload' and as='image'.
         if(imageSizes && !(rel === "preload" && as === "image")) {
-            console.warn(imageSizesCanOnlyUsed);
+            throw Error(imageSizesCanOnlyUsed);
         }
 
+        // The imagesrcset attribute can only be used for rel='preload' and as='image'.
         if(imageSrcset && !(rel === "preload" && as === "image")) {
-            console.warn(imageSrcsetCanOnlyUsed);
+            throw Error(imageSrcsetCanOnlyUsed);
         }
 
-        if(sizes && rel !== "icon") {
-            console.warn(sizesCanOnlyUsed);
+        // The sizes attribute can only be used if rel contain 'icon'.
+        if(sizes && !(rel?.match(/\bicon\b/g))) {
+            throw Error(sizesCanOnlyUsed);
         }
 
         // optional
