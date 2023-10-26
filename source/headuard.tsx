@@ -1,14 +1,6 @@
 
-import { final } from "@cozyrl/decorators";
+import { final } from "./decorators";
 import { HeadElement, HeadTag } from "./types";
-import { 
-    srcAbsent,
-    deferModuleScripts,
-    hreflangWithoutHref,
-    imageSizesCanOnlyUsed, 
-    imageSrcsetCanOnlyUsed,
-    sizesCanOnlyUsed
-} from "./utilities";
 
 import { 
     TitleTag,
@@ -68,7 +60,7 @@ export class Headuard {
         * @private
     */
 
-    private static mount(headElement: HeadElement) {
+    public static mount(headElement: HeadElement) {
         return document.head.appendChild(headElement);
     }
 
@@ -88,7 +80,7 @@ export class Headuard {
         * @public
     */
 
-    public static createTitle(attributes: TitleTag) {
+    public static createTitle(attributes: TitleTag): HTMLTitleElement {
         const titleElem = document.createElement("title");
         const { textContent } = attributes;
 
@@ -98,7 +90,7 @@ export class Headuard {
         // global atrributes
         this.setOptionalAttributes(attributes, titleElem);
 
-        return this.mount(titleElem) as HTMLTitleElement;
+        return titleElem;
     }
 
     /**
@@ -107,7 +99,7 @@ export class Headuard {
         * @public
     */
 
-    public static createBase(attributes: BaseTag) {
+    public static createBase(attributes: BaseTag): HTMLBaseElement {
         const baseElem = document.createElement("base");
         const { href, target } = attributes;
 
@@ -118,7 +110,7 @@ export class Headuard {
         // global atrributes
         this.setOptionalAttributes(attributes, baseElem);
 
-        return this.mount(baseElem) as HTMLBaseElement;
+        return baseElem;
     }
 
     /**
@@ -127,7 +119,7 @@ export class Headuard {
         * @public
     */
 
-    public static createMeta(attributes: MetaTag) {
+    public static createMeta(attributes: MetaTag): HTMLMetaElement {
         const metaElem = document.createElement("meta");
         const { httpEquiv, name, content, charset } = attributes;
 
@@ -140,7 +132,7 @@ export class Headuard {
         // global atrributes
         this.setOptionalAttributes(attributes, metaElem);
 
-        return this.mount(metaElem) as HTMLMetaElement;
+        return metaElem;
     }
 
     /**
@@ -149,7 +141,7 @@ export class Headuard {
         * @public
     */
 
-    public static createScript(attributes: ScriptTag) {
+    public static createScript(attributes: ScriptTag): HTMLScriptElement {
 
         const scriptElem = document.createElement("script");
 
@@ -165,16 +157,6 @@ export class Headuard {
             referrerPolicy
         } = attributes;
 
-        // This attribute must not be used if the src attribute is absent (i.e. for inline scripts), in this case it would have no effect.
-        if(type === "module" && defer) {
-            throw Error(srcAbsent);
-        }
-
-        // The defer attribute has no effect on module scripts — they defer by default.
-        if(!src && defer) {
-            throw Error(deferModuleScripts);
-        }
-
         // optional
         src ? scriptElem.src = src : undefined;
         async ? scriptElem.async = async : undefined;
@@ -189,7 +171,7 @@ export class Headuard {
         // global atrributes
         this.setOptionalAttributes(attributes, scriptElem);
 
-        return this.mount(scriptElem) as HTMLScriptElement;
+        return scriptElem;
     }
 
     /**
@@ -198,7 +180,7 @@ export class Headuard {
         * @public
     */
 
-    public static createLink(attributes: LinkTag) {
+    public static createLink(attributes: LinkTag): HTMLLinkElement {
         const linkElem = document.createElement("link");
 
         const {
@@ -217,26 +199,6 @@ export class Headuard {
             sizes,
             color
         } = attributes;
-
-        // The hreflang attribute can only be used if the href attribute is present.
-        if(hreflang && !href) {
-            throw Error(hreflangWithoutHref);
-        } 
-
-        // The imagesizes attribute can only be used for rel='preload' and as='image'.
-        if(imageSizes && !(rel === "preload" && as === "image")) {
-            throw Error(imageSizesCanOnlyUsed);
-        }
-
-        // The imagesrcset attribute can only be used for rel='preload' and as='image'.
-        if(imageSrcset && !(rel === "preload" && as === "image")) {
-            throw Error(imageSrcsetCanOnlyUsed);
-        }
-
-        // The sizes attribute can only be used if rel contain 'icon'.
-        if(sizes && !(rel?.match(/\bicon\b/g))) {
-            throw Error(sizesCanOnlyUsed);
-        }
 
         // optional
         as ? linkElem.as = as : undefined;
@@ -257,7 +219,7 @@ export class Headuard {
         // global atrributes
         this.setOptionalAttributes(attributes, linkElem);
 
-        return this.mount(linkElem) as HTMLLinkElement;
+        return linkElem;
     }
 
 }
