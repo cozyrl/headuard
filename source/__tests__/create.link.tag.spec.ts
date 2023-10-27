@@ -15,7 +15,7 @@ describe("**/** Link tag specifications **/**", () => {
         const rel = "alternate";
         tag = Headuard.createLink({ rel });
         
-        expect(tag.tagName).toBe("SCRIPT");
+        expect(tag.tagName).toBe("LINK");
         expect(tag.rel).toBe(rel);
     });
 
@@ -23,7 +23,7 @@ describe("**/** Link tag specifications **/**", () => {
         const rel = "author";
         tag = Headuard.createLink({ rel });
         
-        expect(tag.tagName).toBe("SCRIPT");
+        expect(tag.tagName).toBe("LINK");
         expect(tag.rel).toBe(rel);
     });
 
@@ -31,7 +31,7 @@ describe("**/** Link tag specifications **/**", () => {
         const rel = "canonical";
         tag = Headuard.createLink({ rel });
         
-        expect(tag.tagName).toBe("SCRIPT");
+        expect(tag.tagName).toBe("LINK");
         expect(tag.rel).toBe(rel);
     });
 
@@ -39,7 +39,7 @@ describe("**/** Link tag specifications **/**", () => {
         const rel = "dns-prefetch";
         tag = Headuard.createLink({ rel });
         
-        expect(tag.tagName).toBe("SCRIPT");
+        expect(tag.tagName).toBe("LINK");
         expect(tag.rel).toBe(rel);
     });
 
@@ -47,7 +47,7 @@ describe("**/** Link tag specifications **/**", () => {
         const rel = "help";
         tag = Headuard.createLink({ rel });
         
-        expect(tag.tagName).toBe("SCRIPT");
+        expect(tag.tagName).toBe("LINK");
         expect(tag.rel).toBe(rel);
     });
 
@@ -55,7 +55,7 @@ describe("**/** Link tag specifications **/**", () => {
         const rel = "icon";
         tag = Headuard.createLink({ rel });
         
-        expect(tag.tagName).toBe("SCRIPT");
+        expect(tag.tagName).toBe("LINK");
         expect(tag.rel).toBe(rel);
     });
 
@@ -63,7 +63,7 @@ describe("**/** Link tag specifications **/**", () => {
         const rel = "manifest";
         tag = Headuard.createLink({ rel });
         
-        expect(tag.tagName).toBe("SCRIPT");
+        expect(tag.tagName).toBe("LINK");
         expect(tag.rel).toBe(rel);
     });
 
@@ -71,7 +71,7 @@ describe("**/** Link tag specifications **/**", () => {
         const rel = "modulepreload";
         tag = Headuard.createLink({ rel });
         
-        expect(tag.tagName).toBe("SCRIPT");
+        expect(tag.tagName).toBe("LINK");
         expect(tag.rel).toBe(rel);
     });
 
@@ -79,7 +79,7 @@ describe("**/** Link tag specifications **/**", () => {
         const rel = "next";
         tag = Headuard.createLink({ rel });
         
-        expect(tag.tagName).toBe("SCRIPT");
+        expect(tag.tagName).toBe("LINK");
         expect(tag.rel).toBe(rel);
     });
 
@@ -87,7 +87,7 @@ describe("**/** Link tag specifications **/**", () => {
         const rel = "preconnect";
         tag = Headuard.createLink({ rel });
         
-        expect(tag.tagName).toBe("SCRIPT");
+        expect(tag.tagName).toBe("LINK");
         expect(tag.rel).toBe(rel);
     });
 
@@ -95,7 +95,7 @@ describe("**/** Link tag specifications **/**", () => {
         const rel = "prefetch";
         tag = Headuard.createLink({ rel });
         
-        expect(tag.tagName).toBe("SCRIPT");
+        expect(tag.tagName).toBe("LINK");
         expect(tag.rel).toBe(rel);
     });
 
@@ -103,7 +103,7 @@ describe("**/** Link tag specifications **/**", () => {
         const rel = "preload";
         tag = Headuard.createLink({ rel });
         
-        expect(tag.tagName).toBe("SCRIPT");
+        expect(tag.tagName).toBe("LINK");
         expect(tag.rel).toBe(rel);
     });
 
@@ -111,7 +111,7 @@ describe("**/** Link tag specifications **/**", () => {
         const rel = "prerender";
         tag = Headuard.createLink({ rel });
         
-        expect(tag.tagName).toBe("SCRIPT");
+        expect(tag.tagName).toBe("LINK");
         expect(tag.rel).toBe(rel);
     });
 
@@ -119,7 +119,7 @@ describe("**/** Link tag specifications **/**", () => {
         const rel = "prev";
         tag = Headuard.createLink({ rel });
         
-        expect(tag.tagName).toBe("SCRIPT");
+        expect(tag.tagName).toBe("LINK");
         expect(tag.rel).toBe(rel);
     });
 
@@ -127,7 +127,7 @@ describe("**/** Link tag specifications **/**", () => {
         const rel = "search";
         tag = Headuard.createLink({ rel });
         
-        expect(tag.tagName).toBe("SCRIPT");
+        expect(tag.tagName).toBe("LINK");
         expect(tag.rel).toBe(rel);
     });
 
@@ -135,7 +135,7 @@ describe("**/** Link tag specifications **/**", () => {
         const rel = "stylesheet";
         tag = Headuard.createLink({ rel });
         
-        expect(tag.tagName).toBe("SCRIPT");
+        expect(tag.tagName).toBe("LINK");
         expect(tag.rel).toBe(rel);
     });
 
@@ -143,7 +143,7 @@ describe("**/** Link tag specifications **/**", () => {
         const rel = "apple-touch-icon";
         tag = Headuard.createLink({ rel });
         
-        expect(tag.tagName).toBe("SCRIPT");
+        expect(tag.tagName).toBe("LINK");
         expect(tag.rel).toBe(rel);
     });
 
@@ -151,7 +151,7 @@ describe("**/** Link tag specifications **/**", () => {
         const rel = "mask-icon";
         tag = Headuard.createLink({ rel });
         
-        expect(tag.tagName).toBe("SCRIPT");
+        expect(tag.tagName).toBe("LINK");
         expect(tag.rel).toBe(rel);
     });
 
@@ -159,7 +159,7 @@ describe("**/** Link tag specifications **/**", () => {
         const rel = "shortcut icon";
         tag = Headuard.createLink({ rel });
         
-        expect(tag.tagName).toBe("SCRIPT");
+        expect(tag.tagName).toBe("LINK");
         expect(tag.rel).toBe(rel);
     });
 
@@ -167,15 +167,15 @@ describe("**/** Link tag specifications **/**", () => {
         const rel = "tag";
         tag = Headuard.createLink({ rel });
         
-        expect(tag.tagName).toBe("SCRIPT");
+        expect(tag.tagName).toBe("LINK");
         expect(tag.rel).toBe(rel);
     });
 
     it("must be able to create a link tag element whose href attribute is defined.", () => {
-        const href = randomUUID();
+        const href = `http://localhost/${randomUUID()}`;
         tag = Headuard.createLink({ href });
 
-        expect(tag.tagName).toBe("SCRIPT");
+        expect(tag.tagName).toBe("LINK");
         expect(tag.href).toBe(href);
     });
 
@@ -183,7 +183,7 @@ describe("**/** Link tag specifications **/**", () => {
         const title = randomUUID();
         tag = Headuard.createLink({ title });
 
-        expect(tag.tagName).toBe("SCRIPT");
+        expect(tag.tagName).toBe("LINK");
         expect(tag.title).toBe(title);
     });
 
@@ -191,7 +191,7 @@ describe("**/** Link tag specifications **/**", () => {
         const imageSizes = "1px";
         tag = Headuard.createLink({ imageSizes });
         
-        expect(tag.tagName).toBe("SCRIPT");
+        expect(tag.tagName).toBe("LINK");
         expect(tag.imageSizes).toBe(imageSizes);
     });
 
@@ -199,7 +199,7 @@ describe("**/** Link tag specifications **/**", () => {
         const imageSizes = "1em";
         tag = Headuard.createLink({ imageSizes });
         
-        expect(tag.tagName).toBe("SCRIPT");
+        expect(tag.tagName).toBe("LINK");
         expect(tag.imageSizes).toBe(imageSizes);
     });
 
@@ -207,7 +207,7 @@ describe("**/** Link tag specifications **/**", () => {
         const imageSizes = "1%";
         tag = Headuard.createLink({ imageSizes });
         
-        expect(tag.tagName).toBe("SCRIPT");
+        expect(tag.tagName).toBe("LINK");
         expect(tag.imageSizes).toBe(imageSizes);
     });
 
@@ -215,7 +215,7 @@ describe("**/** Link tag specifications **/**", () => {
         const imageSizes = "1vw";
         tag = Headuard.createLink({ imageSizes });
         
-        expect(tag.tagName).toBe("SCRIPT");
+        expect(tag.tagName).toBe("LINK");
         expect(tag.imageSizes).toBe(imageSizes);
     });
 
@@ -223,7 +223,7 @@ describe("**/** Link tag specifications **/**", () => {
         const imageSizes = "1vh";
         tag = Headuard.createLink({ imageSizes });
         
-        expect(tag.tagName).toBe("SCRIPT");
+        expect(tag.tagName).toBe("LINK");
         expect(tag.imageSizes).toBe(imageSizes);
     });
 
@@ -231,7 +231,7 @@ describe("**/** Link tag specifications **/**", () => {
         const imageSizes = "1vmin";
         tag = Headuard.createLink({ imageSizes });
         
-        expect(tag.tagName).toBe("SCRIPT");
+        expect(tag.tagName).toBe("LINK");
         expect(tag.imageSizes).toBe(imageSizes);
     });
 
@@ -239,7 +239,7 @@ describe("**/** Link tag specifications **/**", () => {
         const imageSizes = "1vmax";
         tag = Headuard.createLink({ imageSizes });
         
-        expect(tag.tagName).toBe("SCRIPT");
+        expect(tag.tagName).toBe("LINK");
         expect(tag.imageSizes).toBe(imageSizes);
     });
 
@@ -247,7 +247,7 @@ describe("**/** Link tag specifications **/**", () => {
         const imageSizes = "calc(1% - 1px)";
         tag = Headuard.createLink({ imageSizes });
         
-        expect(tag.tagName).toBe("SCRIPT");
+        expect(tag.tagName).toBe("LINK");
         expect(tag.imageSizes).toBe(imageSizes);
     });
 
@@ -255,7 +255,7 @@ describe("**/** Link tag specifications **/**", () => {
         const imageSrcset = randomUUID();
         tag = Headuard.createLink({ imageSrcset });
 
-        expect(tag.tagName).toBe("SCRIPT");
+        expect(tag.tagName).toBe("LINK");
         expect(tag.imageSrcset).toBe(imageSrcset);
     });
 
@@ -263,7 +263,7 @@ describe("**/** Link tag specifications **/**", () => {
         const integrity = randomUUID();
         tag = Headuard.createLink({ integrity });
 
-        expect(tag.tagName).toBe("SCRIPT");
+        expect(tag.tagName).toBe("LINK");
         expect(tag.integrity).toBe(integrity);
     });
 
@@ -271,7 +271,7 @@ describe("**/** Link tag specifications **/**", () => {
         const media = randomUUID();
         tag = Headuard.createLink({ media });
 
-        expect(tag.tagName).toBe("SCRIPT");
+        expect(tag.tagName).toBe("LINK");
         expect(tag.media).toBe(media);
     });
 
@@ -279,7 +279,7 @@ describe("**/** Link tag specifications **/**", () => {
         const referrerPolicy = "no-referrer";
         tag = Headuard.createLink({ referrerPolicy });
         
-        expect(tag.tagName).toBe("SCRIPT");
+        expect(tag.tagName).toBe("LINK");
         expect(tag.referrerPolicy).toBe(referrerPolicy);
     });
 
@@ -287,7 +287,7 @@ describe("**/** Link tag specifications **/**", () => {
         const referrerPolicy = "no-referrer-when-downgrade";
         tag = Headuard.createLink({ referrerPolicy });
         
-        expect(tag.tagName).toBe("SCRIPT");
+        expect(tag.tagName).toBe("LINK");
         expect(tag.referrerPolicy).toBe(referrerPolicy);
     });
 
@@ -295,7 +295,7 @@ describe("**/** Link tag specifications **/**", () => {
         const referrerPolicy = "origin";
         tag = Headuard.createLink({ referrerPolicy });
         
-        expect(tag.tagName).toBe("SCRIPT");
+        expect(tag.tagName).toBe("LINK");
         expect(tag.referrerPolicy).toBe(referrerPolicy);
     });
 
@@ -303,7 +303,7 @@ describe("**/** Link tag specifications **/**", () => {
         const referrerPolicy = "origin-when-cross-origin";
         tag = Headuard.createLink({ referrerPolicy });
         
-        expect(tag.tagName).toBe("SCRIPT");
+        expect(tag.tagName).toBe("LINK");
         expect(tag.referrerPolicy).toBe(referrerPolicy);
     });
 
@@ -311,7 +311,7 @@ describe("**/** Link tag specifications **/**", () => {
         const referrerPolicy = "unsafe-url";
         tag = Headuard.createLink({ referrerPolicy });
         
-        expect(tag.tagName).toBe("SCRIPT");
+        expect(tag.tagName).toBe("LINK");
         expect(tag.referrerPolicy).toBe(referrerPolicy);
     });
 
@@ -319,7 +319,7 @@ describe("**/** Link tag specifications **/**", () => {
         const type = "text/css";
         tag = Headuard.createLink({ type });
         
-        expect(tag.tagName).toBe("SCRIPT");
+        expect(tag.tagName).toBe("LINK");
         expect(tag.type).toBe(type);
     });
 
@@ -327,7 +327,7 @@ describe("**/** Link tag specifications **/**", () => {
         const type = "text/sass";
         tag = Headuard.createLink({ type });
         
-        expect(tag.tagName).toBe("SCRIPT");
+        expect(tag.tagName).toBe("LINK");
         expect(tag.type).toBe(type);
     });
 
@@ -336,15 +336,15 @@ describe("**/** Link tag specifications **/**", () => {
         const type = "text/scss";
         tag = Headuard.createLink({ type });
         
-        expect(tag.tagName).toBe("SCRIPT");
+        expect(tag.tagName).toBe("LINK");
         expect(tag.type).toBe(type);
     });
 
-    it("must be able to create a link tag element whose the type attribute is set to text/javascript.", () => {
+    it("must be able to create a link tag element whose the type attribute is set to text/javaLINK.", () => {
         const type = "text/javascript";
         tag = Headuard.createLink({ type });
         
-        expect(tag.tagName).toBe("SCRIPT");
+        expect(tag.tagName).toBe("LINK");
         expect(tag.type).toBe(type);
     });
 
@@ -352,7 +352,7 @@ describe("**/** Link tag specifications **/**", () => {
         const type = "image/png";
         tag = Headuard.createLink({ type });
         
-        expect(tag.tagName).toBe("SCRIPT");
+        expect(tag.tagName).toBe("LINK");
         expect(tag.type).toBe(type);
     });
 
@@ -360,7 +360,7 @@ describe("**/** Link tag specifications **/**", () => {
         const type = "image/jpeg";
         tag = Headuard.createLink({ type });
         
-        expect(tag.tagName).toBe("SCRIPT");
+        expect(tag.tagName).toBe("LINK");
         expect(tag.type).toBe(type);
     });
 
@@ -368,7 +368,7 @@ describe("**/** Link tag specifications **/**", () => {
         const type = "image/gif";
         tag = Headuard.createLink({ type });
         
-        expect(tag.tagName).toBe("SCRIPT");
+        expect(tag.tagName).toBe("LINK");
         expect(tag.type).toBe(type);
     });
 
@@ -376,7 +376,7 @@ describe("**/** Link tag specifications **/**", () => {
         const type = "font/woff";
         tag = Headuard.createLink({ type });
         
-        expect(tag.tagName).toBe("SCRIPT");
+        expect(tag.tagName).toBe("LINK");
         expect(tag.type).toBe(type);
     });
 
@@ -384,7 +384,7 @@ describe("**/** Link tag specifications **/**", () => {
         const type = "font/woff2";
         tag = Headuard.createLink({ type });
         
-        expect(tag.tagName).toBe("SCRIPT");
+        expect(tag.tagName).toBe("LINK");
         expect(tag.type).toBe(type);
     });
 
@@ -392,7 +392,7 @@ describe("**/** Link tag specifications **/**", () => {
         const type = "application/json";
         tag = Headuard.createLink({ type });
         
-        expect(tag.tagName).toBe("SCRIPT");
+        expect(tag.tagName).toBe("LINK");
         expect(tag.type).toBe(type);
     });
 
@@ -400,7 +400,7 @@ describe("**/** Link tag specifications **/**", () => {
         const type = "application/xml";
         tag = Headuard.createLink({ type });
         
-        expect(tag.tagName).toBe("SCRIPT");
+        expect(tag.tagName).toBe("LINK");
         expect(tag.type).toBe(type);
     });
 
@@ -408,7 +408,7 @@ describe("**/** Link tag specifications **/**", () => {
         const as = "audio";
         tag = Headuard.createLink({ as });
         
-        expect(tag.tagName).toBe("SCRIPT");
+        expect(tag.tagName).toBe("LINK");
         expect(tag.as).toBe(as);
     });
 
@@ -416,7 +416,7 @@ describe("**/** Link tag specifications **/**", () => {
         const as = "document";
         tag = Headuard.createLink({ as });
         
-        expect(tag.tagName).toBe("SCRIPT");
+        expect(tag.tagName).toBe("LINK");
         expect(tag.as).toBe(as);
     });
 
@@ -424,7 +424,7 @@ describe("**/** Link tag specifications **/**", () => {
         const as = "embed";
         tag = Headuard.createLink({ as });
         
-        expect(tag.tagName).toBe("SCRIPT");
+        expect(tag.tagName).toBe("LINK");
         expect(tag.as).toBe(as);
     });
 
@@ -432,7 +432,7 @@ describe("**/** Link tag specifications **/**", () => {
         const as = "fetch";
         tag = Headuard.createLink({ as });
         
-        expect(tag.tagName).toBe("SCRIPT");
+        expect(tag.tagName).toBe("LINK");
         expect(tag.as).toBe(as);
     });
 
@@ -440,7 +440,7 @@ describe("**/** Link tag specifications **/**", () => {
         const as = "font";
         tag = Headuard.createLink({ as });
         
-        expect(tag.tagName).toBe("SCRIPT");
+        expect(tag.tagName).toBe("LINK");
         expect(tag.as).toBe(as);
     });
 
@@ -448,7 +448,7 @@ describe("**/** Link tag specifications **/**", () => {
         const as = "image";
         tag = Headuard.createLink({ as });
         
-        expect(tag.tagName).toBe("SCRIPT");
+        expect(tag.tagName).toBe("LINK");
         expect(tag.as).toBe(as);
     });
 
@@ -456,7 +456,7 @@ describe("**/** Link tag specifications **/**", () => {
         const as = "object";
         tag = Headuard.createLink({ as });
         
-        expect(tag.tagName).toBe("SCRIPT");
+        expect(tag.tagName).toBe("LINK");
         expect(tag.as).toBe(as);
     });
 
@@ -464,7 +464,7 @@ describe("**/** Link tag specifications **/**", () => {
         const as = "style";
         tag = Headuard.createLink({ as });
         
-        expect(tag.tagName).toBe("SCRIPT");
+        expect(tag.tagName).toBe("LINK");
         expect(tag.as).toBe(as);
     });
 
@@ -472,7 +472,7 @@ describe("**/** Link tag specifications **/**", () => {
         const as = "track";
         tag = Headuard.createLink({ as });
         
-        expect(tag.tagName).toBe("SCRIPT");
+        expect(tag.tagName).toBe("LINK");
         expect(tag.as).toBe(as);
     });
 
@@ -480,7 +480,7 @@ describe("**/** Link tag specifications **/**", () => {
         const as = "video";
         tag = Headuard.createLink({ as });
         
-        expect(tag.tagName).toBe("SCRIPT");
+        expect(tag.tagName).toBe("LINK");
         expect(tag.as).toBe(as);
     });
 
@@ -488,7 +488,7 @@ describe("**/** Link tag specifications **/**", () => {
         const as = "worker";
         tag = Headuard.createLink({ as });
         
-        expect(tag.tagName).toBe("SCRIPT");
+        expect(tag.tagName).toBe("LINK");
         expect(tag.as).toBe(as);
     });
 
@@ -496,7 +496,7 @@ describe("**/** Link tag specifications **/**", () => {
         const crossOrigin = "anonymous";
         tag = Headuard.createLink({ crossOrigin });
         
-        expect(tag.tagName).toBe("SCRIPT");
+        expect(tag.tagName).toBe("LINK");
         expect(tag.crossOrigin).toBe(crossOrigin);
     });
 
@@ -504,7 +504,7 @@ describe("**/** Link tag specifications **/**", () => {
         const crossOrigin = "use-credentials";
         tag = Headuard.createLink({ crossOrigin });
         
-        expect(tag.tagName).toBe("SCRIPT");
+        expect(tag.tagName).toBe("LINK");
         expect(tag.crossOrigin).toBe(crossOrigin);
     });
 
@@ -512,7 +512,7 @@ describe("**/** Link tag specifications **/**", () => {
         const hreflang = randomUUID();
         tag = Headuard.createLink({ hreflang });
 
-        expect(tag.tagName).toBe("SCRIPT");
+        expect(tag.tagName).toBe("LINK");
         expect(tag.hreflang).toBe(hreflang);
     });
 
@@ -520,7 +520,7 @@ describe("**/** Link tag specifications **/**", () => {
         const sizes = "1x1";
         tag = Headuard.createLink({ sizes });
         
-        expect(tag.tagName).toBe("SCRIPT");
+        expect(tag.tagName).toBe("LINK");
         expect(tag.sizes).toBe(sizes);
     });
 
@@ -528,7 +528,7 @@ describe("**/** Link tag specifications **/**", () => {
         const sizes = "1X1";
         tag = Headuard.createLink({ sizes });
         
-        expect(tag.tagName).toBe("SCRIPT");
+        expect(tag.tagName).toBe("LINK");
         expect(tag.sizes).toBe(sizes);
     });
 
@@ -536,7 +536,7 @@ describe("**/** Link tag specifications **/**", () => {
         const color = randomUUID();
         tag = Headuard.createLink({ color });
 
-        expect(tag.tagName).toBe("SCRIPT");
+        expect(tag.tagName).toBe("LINK");
         expect(tag.getAttribute("color")).toBe(color);
     });
 

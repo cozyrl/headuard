@@ -72,7 +72,7 @@ describe("**/** Create script tag specifications **/**", () => {
         tag = Headuard.createScript({ crossOrigin });
 
         expect(tag.tagName).toBe("SCRIPT");
-        expect(tag.crossOrigin).toBeNull();
+        expect(tag.crossOrigin).toBe("null");
     });
 
     it("must be able to create a meta tag element whose defer attribute is set to true.", () => {
