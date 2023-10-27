@@ -19,6 +19,9 @@ All methods in `Headuard` support the following global attributes:
 - `autoCapitalize`: Controls capitalization of text input.
   - Possible values: `"off"`, `"none"`, `"on"`, `"sentences"`, `"words"`, `"characters"`.
 
+- `className`: A space-separated list of the classes of the element.
+  - Possible values: `"string"` (e.g., `"class1 class2"`)
+
 - `contentEditable`: Indicates if the element's content is editable.
   - Possible values: `"true"`, `"false"`, `"inherit"`.
 
@@ -143,7 +146,8 @@ Creates a `<link>` element and appends it to the document head.
 ### `LinkTag` Attributes:
 
 - `rel`: Specifies the relationship between the current document and the linked resource.
-  - Possible values: `"alternate"`, `"author"`, `"canonical"`, `"dns-prefetch"`, `"help"`, `"icon"`, `"manifest"`, `"modulepreload"`, `"next"`, `"preconnect"`, `"prefetch"`, `"preload"`, `"prerender"`, `"prev"`, `"search"`, `"stylesheet"`, `"tag"`.
+  - Possible values: `"alternate"`, `"author"`, `"canonical"`, `"dns-prefetch"`, `"help"`, `"icon"`, `"manifest"`, `"modulepreload"`, `"next"`, `"preconnect"`, `"prefetch"`, `"preload"`, `"prerender"`, `"prev"`, `"search"`, `"stylesheet"`,
+  `"apple-touch-icon"`, `"mask-icon"`,`"shortcut icon"`, `"tag"`.
 
 - `href`: Provides the destination of the linked resource.
   - Possible values: `"string"` (e.g., `"https://example.com/styles.css"`).
@@ -152,7 +156,16 @@ Creates a `<link>` element and appends it to the document head.
   - Possible values: `"string"` (e.g., `"Stylesheet"`).
 
 - `imageSizes`: Specifies a list of image candidates and their respective display densities. Used in conjunction with `rel="preload"` and `as="image"`.
-  - Possible values: See imageSizes values.
+  - Possible values: See imageSizes values:
+    - `"auto"`: The browser will determine the size automatically.
+    - `${number}px`: Specifies the size in pixels (e.g., 100px).
+    - `${number}em`: Specifies the size relative to the font-size of the element (e.g., 2em is twice the font size).
+    - `${number}%`: Specifies the size as a percentage of its containing element.
+    - `${number}vw`: Specifies the size relative to 1% of the viewport width.
+    - `${number}vh`: Specifies the size relative to 1% of the viewport height.
+    - `${number}vmin`: Specifies the size relative to 1% of the smaller of the viewport width and height.
+    - `${number}vmax`: Specifies the size relative to 1% of the larger of the viewport width and height.
+    - `calc(${string})`: Allows for more complex size calculations using CSS calc() function (e.g., calc(50% - 10px)).
 
 - `imageSrcset`: Specifies a list of image candidates and their respective display densities. Used in conjunction with `rel="preload"` and `as="image"`.
   - Possible values: `"string"` (e.g., `"image-1x.jpg 1x, image-2x.jpg 2x"`).
@@ -177,3 +190,11 @@ Creates a `<link>` element and appends it to the document head.
 
 - `hreflang`: Specifies the language of the linked resource.
   - Possible values: `"string"` (e.g., `"en"`, `"fr-FR"`, etc.).
+
+- `sizes`: Specifies the dimensions of an element, typically used for images.
+  - Possible values:
+    - `${number}x${number}`: Specifies the dimensions in pixels (e.g., 100x100).
+    - `${number}X${number}`: Also specifies the dimensions in pixels, but with capital 'X'.
+
+- `color`: The color value.
+  - `Possible values`: Any valid CSS color value (e.g., "red", "#00FF00", "rgba(255, 0, 0, 0.5)").
