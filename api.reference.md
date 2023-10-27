@@ -5,9 +5,6 @@
 
 <h1 align="center">Headuard API Reference</h1>
 
-Certainly! To provide enums for the possible values of attributes in your interfaces, we'll include them in the API reference. Here are the enums for the attributes mentioned in your interfaces:
-
----
 
 ## Global Attributes
 
