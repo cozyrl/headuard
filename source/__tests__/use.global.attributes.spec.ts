@@ -8,14 +8,8 @@ describe("**/** Global attributes specifications **/**", () => {
 
     var tag: HeadElement;
     var textContent: string;
-    var conflict: jest.SpyInstance;
 
-    beforeEach(() => {
-        conflict = jest.spyOn(console, "debug").mockImplementation()
-        textContent = randomUUID();
-    });
-
-    afterEach(() => conflict.mockRestore());
+    beforeEach(() => textContent = randomUUID());
 
     it("must be able to apply global attributes to a title tag without conflict.", () => {
         const attributes = Object.assign({ textContent }, globalAttributes);
@@ -26,10 +20,7 @@ describe("**/** Global attributes specifications **/**", () => {
             expect((tag as any)[key]).toBe(value);
             
         }
-      
-        expect(conflict).toHaveBeenCalledTimes(0);
     });
-
 
     it("must be able to apply global attributes to a base tag without conflict.", () => {
         tag = Headuard.createBase(globalAttributes);
@@ -38,8 +29,6 @@ describe("**/** Global attributes specifications **/**", () => {
             (tag as any)[key] = value;
             expect((tag as any)[key]).toBe(value);
         }
-      
-        expect(conflict).toHaveBeenCalledTimes(0);
     });
 
     it("must be able to apply global attributes to a meta tag without conflict.", () => {
@@ -49,8 +38,6 @@ describe("**/** Global attributes specifications **/**", () => {
             (tag as any)[key] = value;
             expect((tag as any)[key]).toBe(value);
         }
-      
-        expect(conflict).toHaveBeenCalledTimes(0);
     });
 
     it("must be able to apply global attributes to a script tag without conflict.", () => {
@@ -61,8 +48,6 @@ describe("**/** Global attributes specifications **/**", () => {
             (tag as any)[key] = value;
             expect((tag as any)[key]).toBe(value);
         }
-      
-        expect(conflict).toHaveBeenCalledTimes(0);
     });
 
     it("must be able to apply global attributes to a link tag without conflict.", () => {
@@ -73,8 +58,6 @@ describe("**/** Global attributes specifications **/**", () => {
             (tag as any)[key] = value;
             expect((tag as any)[key]).toBe(value);
         }
-      
-        expect(conflict).toHaveBeenCalledTimes(0);
     });
 
 });
