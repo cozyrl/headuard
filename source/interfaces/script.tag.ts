@@ -1,6 +1,11 @@
 
 import { GlobalAttributes } from "./global.attributes";
 
+import { 
+    ScriptTagType, 
+    ScriptTagReferrerPolicy
+} from "../types";
+
 /**
     * Represents properties commonly used for HTML script tags.
 */
@@ -17,7 +22,7 @@ export interface ScriptTag extends GlobalAttributes {
         * MIME type for the associated scripting engine.
     */
 
-    type?: "text/javascript" | "module" | "importmap";
+    type?: ScriptTagType;
 
     /**
         * Indicates that the script should be executed asynchronously.
@@ -59,12 +64,5 @@ export interface ScriptTag extends GlobalAttributes {
         * The referrer policy for the script.
     */
 
-    referrerPolicy?: "no-referrer" 
-    | "no-referrer-when-downgrade" 
-    | "origin" 
-    | "origin-when-cross-origin"
-    | "same-origin"
-    | "strict-origin"
-    | "strict-origin-when-cross-origin" 
-    | "unsafe-url";
+    referrerPolicy?: ScriptTagReferrerPolicy;
 }

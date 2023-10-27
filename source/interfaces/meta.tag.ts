@@ -1,5 +1,6 @@
 
 import { GlobalAttributes } from "./global.attributes";
+import { MetaTagHttpEquiv } from "../types";
 
 /**
     * Represents properties commonly used for HTML meta tags.
@@ -11,10 +12,7 @@ export interface MetaTag extends GlobalAttributes {
         * Information used to bind the value of a content attribute of a meta element to an HTTP response header.
     */
 
-    httpEquiv?: "content-security-policy"
-    | "content-type"
-    | "default-style"
-    | "x-ua-compatible";
+    httpEquiv?: MetaTagHttpEquiv;
 
     /**
         * The name attribute of the meta tag.

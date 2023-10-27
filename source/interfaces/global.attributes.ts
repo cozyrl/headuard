@@ -1,4 +1,9 @@
 
+import { 
+    AutoCapitalize,
+    ContentEditable,
+    Dir
+} from "../types";
 
 /**
     * Interface for global HTML attributes that can be used across HTML elements.
@@ -22,7 +27,7 @@ export interface GlobalAttributes extends Partial<GlobalEventHandlers> {
         * - "characters": Autocapitalize every character.
     */
 
-    autoCapitalize?: "off" | "none" | "on" | "sentences" | "words" | "characters";
+    autoCapitalize?: AutoCapitalize;
 
     /**
         * A space-separated list of the classes of the element.
@@ -37,7 +42,7 @@ export interface GlobalAttributes extends Partial<GlobalEventHandlers> {
         * - "inherit": Inherit the editable behavior from the parent element.
     */
    
-    contentEditable?: "true" | "false" | "inherit";
+    contentEditable?: ContentEditable;
 
     /**
         * The direction of text. Can take one of the following values:
@@ -46,7 +51,7 @@ export interface GlobalAttributes extends Partial<GlobalEventHandlers> {
         * - "auto": Determined by the user agent.
     */
 
-    dir?: "ltr" | "rtl" | "auto";
+    dir?: Dir;
 
     /**
         * Indicates if the element can be dragged. Can take one of the following values:
